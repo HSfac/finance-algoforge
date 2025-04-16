@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { FaRobot, FaChartLine, FaCogs, FaShieldAlt, FaArrowRight, FaGithub, FaDatabase } from 'react-icons/fa';
@@ -21,7 +21,7 @@ import {
   Legend,
   Filler,
 } from 'chart.js';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 // 아이콘 컴포넌트 정의
 const ChartLineIcon = () => (
@@ -360,11 +360,127 @@ const AlgorithmEffect = () => {
   );
 };
 
+// 코드 실행 애니메이션 컴포넌트 추가
+interface CodeAnimationProps {
+  show: boolean;
+  onComplete: () => void;
+}
+
+const CodeAnimation = ({ show, onComplete }: CodeAnimationProps) => {
+  useEffect(() => {
+    let timer: NodeJS.Timeout | undefined;
+    if (show) {
+      timer = setTimeout(() => {
+        onComplete();
+      }, 1500); // 1.5초 후에 애니메이션 완료 콜백 실행
+    }
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
+  }, [show, onComplete]);
+
+  if (!show) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
+      <div className="max-w-xl w-full text-white font-mono text-sm overflow-hidden">
+        <div className="terminal-header flex items-center justify-between bg-gray-800 p-2 rounded-t-lg border-b border-gray-600">
+          <div className="flex gap-2">
+            <div className="w-3 h-3 rounded-full bg-red-500"></div>
+            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+            <div className="w-3 h-3 rounded-full bg-green-500"></div>
+          </div>
+          <div className="text-xs text-gray-400">알고리즘 실행중...</div>
+        </div>
+        <div className="p-4 bg-black rounded-b-lg border border-gray-700 h-80 overflow-auto">
+          <div className="typing-algorithm">
+            <span style={{ animationDelay: '0.05s' }}>{'>'} 무료상담 신청 요청 처리중...</span>
+            <div className="mt-2">
+              <span style={{ animationDelay: '0.15s' }}>{'>'} 금융 알고리즘 분석 모듈 초기화</span>
+            </div>
+            <div className="mt-1">
+              <span style={{ animationDelay: '0.3s' }}>{'>'} 사용자 데이터 로드중...</span>
+            </div>
+            <div className="mt-1">
+              <span style={{ animationDelay: '0.4s' }}>{'>'} 최적화된 상담 알고리즘 검색중...</span>
+            </div>
+            <div className="mt-2 text-blue-400">
+              <span style={{ animationDelay: '0.5s' }}>{'>'} 전략 매칭 알고리즘 실행:</span>
+            </div>
+            <div className="mt-1 text-green-400">
+              <span style={{ animationDelay: '0.6s' }}>matchStrategy(user) {'{'}</span>
+            </div>
+            <div className="ml-4 text-gray-400">
+              <span style={{ animationDelay: '0.7s' }}>const userPreferences = await getUserData();</span>
+            </div>
+            <div className="ml-4 text-gray-400">
+              <span style={{ animationDelay: '0.8s' }}>const riskProfile = calculateRiskProfile(userPreferences);</span>
+            </div>
+            <div className="ml-4 text-gray-400">
+              <span style={{ animationDelay: '0.9s' }}>const optimalStrategies = findOptimalStrategies(riskProfile);</span>
+            </div>
+            <div className="ml-4 text-gray-400">
+              <span style={{ animationDelay: '1.0s' }}>await prepareCustomConsultation(optimalStrategies);</span>
+            </div>
+            <div className="ml-4 text-green-400">
+              <span style={{ animationDelay: '1.1s' }}>console.log("상담 준비 완료!");</span>
+            </div>
+            <div className="text-green-400">
+              <span style={{ animationDelay: '1.15s' }}>{'}'}</span>
+            </div>
+            <div className="mt-2">
+              <span style={{ animationDelay: '1.2s' }}>{'>'} 상담 페이지로 리디렉션 준비중...</span>
+            </div>
+            <div className="mt-1 text-yellow-400">
+              <span style={{ animationDelay: '1.3s' }}>{'>'} window.location = "/contact";</span>
+            </div>
+            <div className="mt-2 text-blue-400 font-bold">
+              <span style={{ animationDelay: '1.4s' }}>{'>'} 페이지 이동 완료!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute inset-0 algo-grid opacity-10"></div>
+      {Array.from({ length: 20 }).map((_, i) => (
+        <div
+          key={`matrix-line-${i}`}
+          className="matrix-line"
+          style={{
+            left: `${Math.random() * 100}%`,
+            animationDuration: `${5 + Math.random() * 10}s`,
+          }}
+        >
+          {Array.from({ length: 30 }).map((_, j) => (
+            <div
+              key={`matrix-char-${j}`}
+              className="text-blue-500"
+              style={{ opacity: Math.random() }}
+            >
+              {Math.random() > 0.5 ? '1' : '0'}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
+
 export default function Home() {
   const [isBannerCollapsed, setIsBannerCollapsed] = useState(false);
+  const [showCodeAnimation, setShowCodeAnimation] = useState(false);
+  const router = useRouter();
   
   const toggleBanner = () => {
     setIsBannerCollapsed(!isBannerCollapsed);
+  };
+
+  const handleConsultationClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setShowCodeAnimation(true);
+  };
+
+  const handleAnimationComplete = () => {
+    router.push('/contact');
   };
   
   return (
@@ -452,26 +568,26 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <Link href="/contact">
-                  <Button 
-                    variant="accent" 
-                    size="lg" 
-                    className="hero-btn-primary algo-btn-effect w-full sm:w-auto font-bold bg-gradient-to-r from-blue-600 to-blue-400 text-white btn-hover-float btn-sparkle relative overflow-hidden group"
-                  >
-                    <AlgorithmEffect />
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-blue-800/30 backdrop-blur-sm"></div>
-                    <div className="absolute inset-0 bg-white/10 rounded-lg blur-sm transform scale-105 translate-y-2"></div>
-                    <div className="relative z-10 flex items-center justify-center gap-2">
-                      <span className="absolute -top-6 -left-6 w-12 h-12 bg-blue-300/40 rounded-full blur-xl animate-pulse"></span>
-                      <span className="absolute -bottom-8 -right-8 w-16 h-16 bg-blue-500/30 rounded-full blur-xl animate-pulse delay-300"></span>
-                      무료 상담 신청
-                      <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                      </svg>
-                      <span className="absolute top-0 right-0 -mt-2 -mr-2 bg-blue-400 text-white text-xs px-2 py-0.5 rounded-full animate-bounce">New</span>
-                    </div>
-                  </Button>
-                </Link>
+                <Button 
+                  variant="accent" 
+                  size="lg" 
+                  className="hero-btn-primary algo-btn-effect w-full sm:w-auto font-bold bg-gradient-to-r from-blue-600 to-blue-400 text-white btn-hover-float btn-sparkle relative overflow-hidden group"
+                  onClick={handleConsultationClick}
+                >
+                  <AlgorithmEffect />
+                  <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-blue-800/30 backdrop-blur-sm"></div>
+                  <div className="absolute inset-0 bg-white/10 rounded-lg blur-sm transform scale-105 translate-y-2"></div>
+                  <div className="relative z-10 flex items-center justify-center gap-2">
+                    <span className="absolute -top-6 -left-6 w-12 h-12 bg-blue-300/40 rounded-full blur-xl animate-pulse"></span>
+                    <span className="absolute -bottom-8 -right-8 w-16 h-16 bg-blue-500/30 rounded-full blur-xl animate-pulse delay-300"></span>
+                    무료 상담 신청
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                    </svg>
+                    <span className="absolute top-0 right-0 -mt-2 -mr-2 bg-blue-400 text-white text-xs px-2 py-0.5 rounded-full animate-bounce">New</span>
+                  </div>
+                </Button>
+
                 <Link href="/solutions">
                   <Button 
                     variant="outline" 
@@ -491,6 +607,12 @@ export default function Home() {
                   </Button>
                 </Link>
               </motion.div>
+
+              {/* 코드 애니메이션 추가 */}
+              <CodeAnimation 
+                show={showCodeAnimation} 
+                onComplete={handleAnimationComplete} 
+              />
               
               <motion.div
                 className="mt-12 flex items-center gap-3"
