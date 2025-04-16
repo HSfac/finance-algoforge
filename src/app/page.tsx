@@ -6,7 +6,7 @@ import 'chart.js/auto';
 import { FaRobot, FaChartLine, FaCogs, FaShieldAlt, FaArrowRight, FaGithub, FaDatabase } from 'react-icons/fa';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 import Link from 'next/link';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button';
 import CounterAnimation from '@/components/ui/CounterAnimation';
 import HeroBackground from '@/components/ui/HeroBackground';
 import { motion } from 'framer-motion';
@@ -22,6 +22,7 @@ import {
   Filler,
 } from 'chart.js';
 import { useRouter } from 'next/navigation';
+import { useCodeAnimation } from '@/components/layout/Header';
 
 // 아이콘 컴포넌트 정의
 const ChartLineIcon = () => (
@@ -184,6 +185,21 @@ const GlobalStyles = () => (
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
     }
     
+    /* 코드 버튼 스타일 */
+    .code-btn {
+      box-shadow: 0 0 15px rgba(59, 130, 246, 0.2);
+      transition: all 0.4s ease;
+    }
+    
+    .code-btn:hover {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+      transform: translateY(-4px);
+    }
+    
+    .code-btn pre {
+      background: linear-gradient(180deg, rgba(30, 58, 138, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
+    }
+    
     .btn-hover-float {
       animation: floatAnimation 3s ease-in-out infinite;
     }
@@ -249,66 +265,6 @@ const GlobalStyles = () => (
       opacity: 0.15;
       overflow: hidden;
     }
-    
-    .algo-pattern::after {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
-    }
-    
-    .algo-line {
-      position: absolute;
-      height: 1px;
-      background-color: rgba(59, 130, 246, 0.5);
-      animation: algoLineScan 3s linear infinite;
-    }
-    
-    @keyframes algoLineScan {
-      0% { transform: translateY(-100%); opacity: 0; }
-      50% { opacity: 0.8; }
-      100% { transform: translateY(500%); opacity: 0; }
-    }
-    
-    .algo-bit {
-      position: absolute;
-      font-family: monospace;
-      font-size: 0.6rem;
-      color: rgba(59, 130, 246, 0.8);
-      animation: algoBitFade 2s linear infinite;
-    }
-    
-    @keyframes algoBitFade {
-      0%, 100% { opacity: 0.2; }
-      50% { opacity: 0.8; }
-    }
-    
-    .data-stream {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      opacity: 0.2;
-    }
-    
-    .data-particle {
-      position: absolute;
-      width: 2px;
-      height: 2px;
-      background-color: rgba(59, 130, 246, 0.8);
-      border-radius: 50%;
-      animation: dataTravel 4s linear infinite;
-    }
-    
-    @keyframes dataTravel {
-      0% { transform: translate(-10px, -10px); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translate(120%, 120%); opacity: 0; }
-    }
   `}</style>
 );
 
@@ -360,127 +316,38 @@ const AlgorithmEffect = () => {
   );
 };
 
-// 코드 실행 애니메이션 컴포넌트 추가
-interface CodeAnimationProps {
-  show: boolean;
-  onComplete: () => void;
-}
-
-const CodeAnimation = ({ show, onComplete }: CodeAnimationProps) => {
-  useEffect(() => {
-    let timer: NodeJS.Timeout | undefined;
-    if (show) {
-      timer = setTimeout(() => {
-        onComplete();
-      }, 2500); // 2.5초 후에 애니메이션 완료 콜백 실행
-    }
-    return () => {
-      if (timer) clearTimeout(timer);
-    };
-  }, [show, onComplete]);
-
-  if (!show) return null;
-
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/90">
-      <div className="max-w-xl w-full text-white font-mono text-sm overflow-hidden">
-        <div className="terminal-header flex items-center justify-between bg-gray-800 p-2 rounded-t-lg border-b border-gray-600">
-          <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-500"></div>
-            <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-            <div className="w-3 h-3 rounded-full bg-green-500"></div>
-          </div>
-          <div className="text-xs text-gray-400">알고리즘 실행중...</div>
-        </div>
-        <div className="p-4 bg-black rounded-b-lg border border-gray-700 h-80 overflow-auto">
-          <div className="typing-algorithm">
-            <span style={{ animationDelay: '0.1s' }}>{'>'} 무료상담 신청 요청 처리중...</span>
-            <div className="mt-2">
-              <span style={{ animationDelay: '0.25s' }}>{'>'} 금융 알고리즘 분석 모듈 초기화</span>
-            </div>
-            <div className="mt-1">
-              <span style={{ animationDelay: '0.5s' }}>{'>'} 사용자 데이터 로드중...</span>
-            </div>
-            <div className="mt-1">
-              <span style={{ animationDelay: '0.7s' }}>{'>'} 최적화된 상담 알고리즘 검색중...</span>
-            </div>
-            <div className="mt-2 text-blue-400">
-              <span style={{ animationDelay: '0.9s' }}>{'>'} 전략 매칭 알고리즘 실행:</span>
-            </div>
-            <div className="mt-1 text-green-400">
-              <span style={{ animationDelay: '1.1s' }}>matchStrategy(user) {'{'}</span>
-            </div>
-            <div className="ml-4 text-gray-400">
-              <span style={{ animationDelay: '1.3s' }}>const userPreferences = await getUserData();</span>
-            </div>
-            <div className="ml-4 text-gray-400">
-              <span style={{ animationDelay: '1.45s' }}>const riskProfile = calculateRiskProfile(userPreferences);</span>
-            </div>
-            <div className="ml-4 text-gray-400">
-              <span style={{ animationDelay: '1.6s' }}>const optimalStrategies = findOptimalStrategies(riskProfile);</span>
-            </div>
-            <div className="ml-4 text-gray-400">
-              <span style={{ animationDelay: '1.75s' }}>await prepareCustomConsultation(optimalStrategies);</span>
-            </div>
-            <div className="ml-4 text-green-400">
-              <span style={{ animationDelay: '1.9s' }}>console.log("상담 준비 완료!");</span>
-            </div>
-            <div className="text-green-400">
-              <span style={{ animationDelay: '2.0s' }}>{'}'}</span>
-            </div>
-            <div className="mt-2">
-              <span style={{ animationDelay: '2.1s' }}>{'>'} 상담 페이지로 리디렉션 준비중...</span>
-            </div>
-            <div className="mt-1 text-yellow-400">
-              <span style={{ animationDelay: '2.25s' }}>{'>'} window.location = "/contact";</span>
-            </div>
-            <div className="mt-2 text-blue-400 font-bold">
-              <span style={{ animationDelay: '2.4s' }}>{'>'} 페이지 이동 완료!</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="absolute inset-0 algo-grid opacity-10"></div>
-      {Array.from({ length: 20 }).map((_, i) => (
-        <div
-          key={`matrix-line-${i}`}
-          className="matrix-line"
-          style={{
-            left: `${Math.random() * 100}%`,
-            animationDuration: `${5 + Math.random() * 10}s`,
-          }}
-        >
-          {Array.from({ length: 30 }).map((_, j) => (
-            <div
-              key={`matrix-char-${j}`}
-              className="text-blue-500"
-              style={{ opacity: Math.random() }}
-            >
-              {Math.random() > 0.5 ? '1' : '0'}
-            </div>
-          ))}
-        </div>
-      ))}
-    </div>
-  );
-};
-
 export default function Home() {
   const [isBannerCollapsed, setIsBannerCollapsed] = useState(false);
-  const [showCodeAnimation, setShowCodeAnimation] = useState(false);
   const router = useRouter();
+  const { startCodeAnimation } = useCodeAnimation();
   
+  // 코드 스니펫 정의
+  const codeExample = `function algorithmicTrading() {
+  // 금융 데이터 초기화
+  const data = fetchMarketData();
+  
+  // 알고리즘 설정
+  const algorithm = new TradingAlgorithm({
+    timeframe: "1h",
+    strategy: "mean-reversion",
+    riskManagement: true
+  });
+  
+  // 신호 생성 및 포지션 관리
+  const signals = algorithm.analyze(data);
+  
+  // 포지션 실행
+  return signals.map(signal => {
+    return executeOrder(signal);
+  });
+}`;
+
   const toggleBanner = () => {
     setIsBannerCollapsed(!isBannerCollapsed);
   };
-
-  const handleConsultationClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setShowCodeAnimation(true);
-  };
-
-  const handleAnimationComplete = () => {
-    router.push('/contact');
+  
+  const handleStartCodeAnimation = () => {
+    startCodeAnimation();
   };
   
   return (
@@ -569,23 +436,16 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 <Button 
-                  variant="accent" 
                   size="lg" 
                   className="hero-btn-primary algo-btn-effect w-full sm:w-auto font-bold bg-gradient-to-r from-blue-600 to-blue-400 text-white btn-hover-float btn-sparkle relative overflow-hidden group"
-                  onClick={handleConsultationClick}
+                  onClick={handleStartCodeAnimation}
                 >
                   <AlgorithmEffect />
                   <div className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-blue-800/30 backdrop-blur-sm"></div>
-                  <div className="absolute inset-0 bg-white/10 rounded-lg blur-sm transform scale-105 translate-y-2"></div>
-                  <div className="relative z-10 flex items-center justify-center gap-2">
-                    <span className="absolute -top-6 -left-6 w-12 h-12 bg-blue-300/40 rounded-full blur-xl animate-pulse"></span>
-                    <span className="absolute -bottom-8 -right-8 w-16 h-16 bg-blue-500/30 rounded-full blur-xl animate-pulse delay-300"></span>
-                    무료 상담 신청
-                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                    </svg>
-                    <span className="absolute top-0 right-0 -mt-2 -mr-2 bg-blue-400 text-white text-xs px-2 py-0.5 rounded-full animate-bounce">New</span>
-                  </div>
+                  <span className="relative z-10 flex items-center gap-2">
+                    무료 상담 시작하기
+                    <ArrowRightIcon />
+                  </span>
                 </Button>
 
                 <Link href="/solutions">
@@ -609,10 +469,7 @@ export default function Home() {
               </motion.div>
 
               {/* 코드 애니메이션 추가 */}
-              <CodeAnimation 
-                show={showCodeAnimation} 
-                onComplete={handleAnimationComplete} 
-              />
+              {/* <CodeAnimation show={showCodeAnimation} onComplete={handleAnimationComplete} /> */}
               
               <motion.div
                 className="mt-12 flex items-center gap-3"
@@ -1622,13 +1479,18 @@ export default function Home() {
           
           <AnimatedItem delay={0.5}>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 font-heading leading-tight text-shadow-lg text-center">
-                지금 바로 <span className="text-blue-400 drop-shadow-[0_2px_8px_rgba(59,130,246,0.7)]">시작</span>하세요
-              </h2>
-              
-            <p className="text-xl max-w-2xl mx-auto mb-10 text-white/90 leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] text-center">
-                당신의 투자 아이디어를 자동화된 수익 시스템으로 바꿔드립니다.
-                <span className="block mt-2 font-medium text-blue-200">지금 무료 상담을 신청하고 맞춤형 솔루션을 경험하세요.</span>
-              </p>
+                <span className="text-white">지금 바로</span> 
+                <span className="relative inline-block mx-2">
+                  <span className="text-blue-300 drop-shadow-[0_2px_8px_rgba(59,130,246,0.9)]">시작</span>
+                  <span className="absolute -bottom-1 left-0 w-full h-2 bg-gradient-to-r from-blue-600 via-blue-400 to-blue-600 rounded-full"></span>
+                </span>
+                <span className="text-white">하세요</span>
+            </h2>
+            
+            <p className="text-xl max-w-2xl mx-auto mb-10 text-white leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)] text-center">
+                당신의 투자 아이디어를 <span className="text-blue-300 font-semibold drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">자동화된 수익 시스템</span>으로 바꿔드립니다.
+                <span className="block mt-4 font-medium text-white bg-blue-900/30 backdrop-blur-sm py-3 px-5 rounded-lg mx-auto max-w-xl border border-blue-400/20">지금 무료 상담을 신청하고 맞춤형 솔루션을 경험하세요.</span>
+            </p>
 
             <div className="max-w-3xl mx-auto mb-16 relative">
               {/* 알고리즘 효과 배경 */}
@@ -1721,21 +1583,36 @@ export default function Home() {
               
                   <Link href="/contact">
                     <Button 
-                      variant="accent" 
-                      size="lg"
-                  className="w-full shadow-xl shadow-blue-900/30 hover:scale-105 transition-transform duration-300 text-white font-bold bg-gradient-to-r from-blue-700 to-blue-500 h-14 text-lg relative overflow-hidden group cta-button-pulse"
+                      variant="secondary"
+                      className="hero-btn-secondary transition-all duration-300 text-white border border-blue-500/30 backdrop-blur-sm hover:border-blue-400 px-6 md:px-8 py-3 rounded-lg relative group overflow-visible code-btn"
                     >
-                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
-                  <span className="absolute -top-10 -left-10 w-16 h-16 bg-blue-400/40 rounded-full blur-2xl group-hover:animate-pulse"></span>
-                  <span className="absolute -bottom-10 -right-10 w-16 h-16 bg-blue-400/40 rounded-full blur-2xl group-hover:animate-pulse"></span>
+                      {/* 코드 배경 효과 */}
+                      <div className="absolute inset-0 overflow-hidden rounded-lg opacity-20 group-hover:opacity-40 transition-opacity">
+                        <pre className="text-[8px] text-blue-400 font-mono leading-tight p-1 overflow-hidden">
+                          {'function requestConsultation() {\n  const client = new Client();\n  const consultation = await client.schedule();\n  return consultation.redirect();\n}'}
+                        </pre>
+                      </div>
+                      
+                      {/* 배경 그라데이션 효과 */}
+                      <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600/20 to-blue-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg"></span>
+                      
+                      {/* 발광 효과 */}
+                      <span className="absolute -inset-1 bg-blue-500/20 rounded-lg blur-md opacity-0 group-hover:opacity-100 transition-all duration-300 z-0"></span>
+                      
+                      {/* 버튼 내용 */}
                       <span className="flex items-center justify-center gap-2 relative z-10">
-                    <span className="relative">
-                      <span className="absolute -top-6 -right-6 w-4 h-4 bg-blue-400 rounded-full animate-ping opacity-75"></span>
-                    </span>
-                        무료 상담 신청하기
-                        <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <span className="relative">
+                          <span className="absolute -top-6 -right-6 w-3 h-3 bg-blue-400 rounded-full animate-ping opacity-75"></span>
+                        </span>
+                        <span className="text-white group-hover:text-blue-200 transition-colors">무료 상담 신청하기</span>
+                        <svg className="w-5 h-5 text-white group-hover:text-blue-200 group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                         </svg>
+                        
+                        {/* 코드 실행 효과 */}
+                        <span className="absolute -right-3 -top-3 opacity-0 group-hover:opacity-100 transition-opacity bg-blue-500 text-[8px] text-white px-2 py-1 rounded-md font-mono">
+                          run()
+                        </span>
                       </span>
                     </Button>
                   </Link>

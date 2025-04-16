@@ -1,0 +1,27 @@
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 배경 원 -->
+  <circle cx="120" cy="120" r="120" fill="url(#grad1)" />
+  
+  <!-- 글자 A -->
+  <path d="M85 170L110 85H130L155 170H135L130 150H110L105 170H85ZM115 135H125L120 110L115 135Z" fill="white" />
+  
+  <!-- 그래프 라인 -->
+  <path d="M40 130C60 110 80 140 100 120C120 100 140 130 160 110C180 90 200 120 220 100" stroke="#FFDD00" stroke-width="6" stroke-linecap="round" />
+  
+  <!-- 주가 차트 막대 -->
+  <rect x="70" y="140" width="6" height="15" rx="2" fill="#4F46E5" />
+  <rect x="85" y="145" width="6" height="10" rx="2" fill="#4F46E5" />
+  <rect x="100" y="135" width="6" height="20" rx="2" fill="#4F46E5" />
+  <rect x="115" y="140" width="6" height="15" rx="2" fill="#4F46E5" />
+  <rect x="130" y="130" width="6" height="25" rx="2" fill="#4F46E5" />
+  <rect x="145" y="138" width="6" height="17" rx="2" fill="#4F46E5" />
+  <rect x="160" y="142" width="6" height="13" rx="2" fill="#4F46E5" />
+  
+  <!-- 그라데이션 정의 -->
+  <defs>
+    <linearGradient id="grad1" x1="0" y1="0" x2="240" y2="240" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0F172A" />
+      <stop offset="1" stop-color="#1E40AF" />
+    </linearGradient>
+  </defs>
+</svg> 

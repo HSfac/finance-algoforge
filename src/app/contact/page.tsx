@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button';
 
 // SVG 아이콘 컴포넌트 직접 정의
 const CheckIcon = () => (
@@ -100,11 +100,26 @@ export default function ContactPage() {
     <div className="flex flex-col">
       {/* 페이지 헤더 */}
       <section className="relative bg-gradient-to-b from-black via-blue-800/80 to-black text-white py-20 md:py-28 overflow-hidden">
-        {/* 배경 효과 */}
+        {/* 고급 배경 효과 */}
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="absolute inset-0 algo-grid opacity-20"></div>
         
-        {/* 데이터 라인 효과 */}
+        {/* 코드 배경 효과 추가 */}
+        <div className="absolute inset-0 z-0 opacity-5">
+          <pre className="text-white font-mono text-[10px] leading-tight p-8 overflow-hidden" style={{ whiteSpace: 'pre-wrap' }}>
+{"function optimizeConsultation(client) {\n  // 클라이언트 데이터 분석\n  const preferences = analyzeClientPreferences(client.data);\n  const riskProfile = calculateRiskProfile(preferences);\n  \n  // 최적 솔루션 탐색\n  const solutions = findOptimalSolutions(riskProfile);\n  \n  // 개인화된 전략 생성\n  return {\n    strategies: solutions.map(solution => {\n      return new Strategy({\n        type: solution.type,\n        parameters: solution.parameters,\n        backtest: runBacktest(solution, client.constraints),\n        implementation: generateImplementationPlan(solution)\n      });\n    }),\n    presentation: createCustomPresentation(solutions, client)\n  };\n}\n\nfunction analyzeClientPreferences(data) {\n  // 고객 성향 및 선호도 분석\n  const preferences = {\n    riskTolerance: evaluateRiskTolerance(data.answers),\n    investmentHorizon: data.timeframe,\n    priorityFactors: extractPriorityFactors(data.answers),\n    constraints: extractConstraints(data.answers)\n  };\n  \n  return preferences;\n}\n\nfunction findOptimalSolutions(riskProfile) {\n  // 알고리즘 기반 최적 솔루션 탐색\n  const candidateSolutions = STRATEGY_DATABASE\n    .filter(strategy => matchesRiskProfile(strategy, riskProfile))\n    .map(strategy => ({ \n      ...strategy, \n      score: calculateStrategyScore(strategy, riskProfile)\n    }));\n    \n  return candidateSolutions\n    .sort((a, b) => b.score - a.score)\n    .slice(0, 3); // 상위 3개 솔루션 반환\n}"}
+          </pre>
+        </div>
+        
+        {/* 3D 그래픽 요소 추가 */}
+        <div className="absolute top-20 right-10 w-72 h-72 md:w-96 md:h-96 opacity-20 z-0">
+          <div className="animate-spin-slow absolute inset-0 border-4 border-blue-500/30 rounded-full"></div>
+          <div className="animate-spin-reverse-slow absolute inset-8 border-4 border-blue-300/20 rounded-full"></div>
+          <div className="animate-pulse-slow absolute inset-16 border-4 border-blue-400/10 rounded-full"></div>
+          <div className="absolute inset-0 bg-gradient-radial from-blue-500/5 to-transparent"></div>
+        </div>
+        
+        {/* 데이터 라인 효과 향상 */}
         <div className="absolute top-0 h-px w-full">
           <div className="data-line w-full h-full"></div>
         </div>
@@ -118,24 +133,113 @@ export default function ContactPage() {
           <div className="data-line h-full w-full"></div>
         </div>
         
+        {/* 부유하는 데이터 포인트 추가 */}
+        <div className="absolute inset-0 overflow-hidden">
+          {Array.from({ length: 15 }).map((_, i) => (
+            <div 
+              key={`data-point-${i}`}
+              className="absolute rounded-full bg-blue-400/30"
+              style={{
+                width: `${Math.random() * 8 + 4}px`,
+                height: `${Math.random() * 8 + 4}px`,
+                top: `${Math.random() * 100}%`,
+                left: `${Math.random() * 100}%`,
+                animation: `float ${Math.random() * 10 + 10}s linear infinite`,
+                animationDelay: `${Math.random() * 5}s`
+              }}
+            />
+          ))}
+        </div>
+        
         <div className="container relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-block px-4 py-1 rounded-full bg-blue-500/30 backdrop-blur-md border border-blue-500/40 mb-6 shadow-lg text-sm">
-              <span className="flex items-center gap-2">
-                <span className="inline-block w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                <span className="font-medium text-white">맞춤형 알고리즘 트레이딩 솔루션</span>
-              </span>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="md:col-span-1">
+              <div className="inline-block px-4 py-1 rounded-full bg-blue-500/30 backdrop-blur-md border border-blue-500/40 mb-6 shadow-lg text-sm animate-pulse-slow">
+                <span className="flex items-center gap-2">
+                  <span className="inline-block w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                  <span className="font-medium text-white">맞춤형 알고리즘 트레이딩 솔루션</span>
+                </span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-shadow-lg leading-tight text-white">
+                <span className="text-white">전문가와</span> 
+                <span className="relative inline-block mx-2">
+                  <span className="text-blue-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">상담</span>
+                  <span className="absolute -bottom-1 left-0 w-full h-1 bg-blue-500/70 rounded-full"></span>
+                </span>
+                <span className="text-white">하고</span><br />
+                <span className="relative inline-block mr-2">
+                  <span className="text-blue-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">맞춤형 솔루션</span>
+                  <span className="absolute -bottom-1 left-0 w-full h-1 bg-blue-500/70 rounded-full"></span>
+                </span>
+                <span className="text-white">을 경험하세요</span>
+              </h1>
+              
+              <p className="text-xl text-white/90 max-w-2xl leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] mb-8">
+                전략이 있으신가요? 기술은 저희가 맡겠습니다.
+                <span className="block mt-2">당신의 트레이딩 아이디어를 현실로 구현하는 첫 걸음을 함께 시작하세요.</span>
+              </p>
+              
+              {/* 통계 지표 추가 */}
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+                <div className="bg-blue-900/20 backdrop-blur-sm rounded-lg p-4 border border-blue-500/20">
+                  <div className="text-3xl font-bold text-blue-300">98%</div>
+                  <div className="text-sm text-white/70">고객 만족도</div>
+                </div>
+                <div className="bg-blue-900/20 backdrop-blur-sm rounded-lg p-4 border border-blue-500/20">
+                  <div className="text-3xl font-bold text-blue-300">24h</div>
+                  <div className="text-sm text-white/70">평균 응답 시간</div>
+                </div>
+                <div className="bg-blue-900/20 backdrop-blur-sm rounded-lg p-4 border border-blue-500/20">
+                  <div className="text-3xl font-bold text-blue-300">200+</div>
+                  <div className="text-sm text-white/70">성공 프로젝트</div>
+                </div>
+              </div>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-shadow-lg leading-tight">
-              전문가와 <span className="text-blue-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">상담</span>하고<br />
-              <span className="text-blue-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">맞춤형 솔루션</span>을 경험하세요
-            </h1>
-            
-            <p className="text-xl text-white/90 max-w-2xl leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] mb-8">
-              전략이 있으신가요? 기술은 저희가 맡겠습니다.
-              당신의 트레이딩 아이디어를 현실로 구현하는 첫 걸음을 함께 시작하세요.
-            </p>
+            {/* 우측 일러스트레이션 영역 */}
+            <div className="hidden md:block md:col-span-1">
+              <div className="relative p-6">
+                <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/20 to-blue-400/10 rounded-2xl blur-xl"></div>
+                <div className="relative rounded-xl overflow-hidden border border-blue-500/30 shadow-2xl bg-black/50 backdrop-blur-lg">
+                  <div className="terminal-header flex items-center justify-between bg-gray-800 p-2">
+                    <div className="flex gap-2">
+                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div className="text-xs text-gray-400">consultation.js</div>
+                  </div>
+                  <div className="p-4 font-mono text-sm text-green-400">
+                    <div className="typing-algorithm">
+                      <span style={{ animationDelay: '0.1s' }}>{'>'} 고객 맞춤형 알고리즘 설계 중...</span>
+                      <div className="mt-2">
+                        <span style={{ animationDelay: '0.3s' }}>{'>'} 리스크 프로파일 분석:</span>
+                      </div>
+                      <div className="ml-4 mt-1 text-blue-300">
+                        <span style={{ animationDelay: '0.5s' }}>const riskScore = 72; // 중간 위험 수용도</span>
+                      </div>
+                      <div className="ml-4">
+                        <span style={{ animationDelay: '0.7s' }}>const timeHorizon = "medium";</span>
+                      </div>
+                      <div className="mt-2">
+                        <span style={{ animationDelay: '0.9s' }}>{'>'} 최적 전략:</span>
+                      </div>
+                      <div className="ml-4 text-yellow-300">
+                        <span style={{ animationDelay: '1.1s' }}>return ["TREND_FOLLOWING", "MOMENTUM", "MEAN_REVERSION"];</span>
+                      </div>
+                      <div className="mt-2">
+                        <span style={{ animationDelay: '1.3s' }}>{'>'} 예상 성과: <span className="text-blue-300">ROI 32.4%</span></span>
+                      </div>
+                    </div>
+                    <div className="mt-3 flex items-center">
+                      <span className="text-white/70">{'>'}</span>
+                      <span className="ml-2 inline-block h-4 w-2 bg-green-500 animate-pulse"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -297,7 +401,7 @@ export default function ContactPage() {
                     <div>
                       <Button
                         type="submit"
-                        variant="primary"
+                        variant="default"
                         size="lg"
                         className="w-full shadow-lg shadow-blue-600/20 transform hover:scale-105 transition-all duration-300 font-bold bg-blue-600 text-white"
                       >

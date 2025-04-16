@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { IBM_Plex_Sans, Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
+import { CodeAnimationProvider } from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { FixedBanner } from '@/components/FixedBanner';
 import { MobileBanner } from '@/components/MobileBanner';
@@ -41,14 +42,16 @@ export default function RootLayout({
         className={`${ibmPlexSans.variable} ${notoSansKr.variable} antialiased bg-background text-text min-h-screen flex flex-col`}
       >
         <Providers>
-          <div className="relative flex min-h-screen flex-col">
-            <Header />
-            <main className="flex-grow">{children}</main>
-            <FixedBanner showOnMobile={false} />
-            <MobileBanner />
-            <Footer />
-            <CookieConsent />
-          </div>
+          <CodeAnimationProvider>
+            <div className="relative flex min-h-screen flex-col">
+              <Header />
+              <main className="flex-grow">{children}</main>
+              <FixedBanner showOnMobile={false} />
+              <MobileBanner />
+              <Footer />
+              <CookieConsent />
+            </div>
+          </CodeAnimationProvider>
         </Providers>
       </body>
     </html>

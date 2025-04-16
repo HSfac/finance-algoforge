@@ -316,20 +316,41 @@
   .typing-algorithm {
     overflow: hidden;
     line-height: 1.5;
+    position: relative;
+    z-index: 30;
   }
-
+  
   .typing-algorithm span {
     display: inline-block;
     opacity: 0;
-    animation: typingAlgorithm 1s forwards;
+    animation: typingAlgorithm 3s steps(60, end) forwards;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+    position: relative;
+    z-index: 30;
+    font-weight: 500;
   }
+  
+  .typing-algorithm span:nth-child(2) { animation-delay: 0.1s; }
+  .typing-algorithm span:nth-child(3) { animation-delay: 0.2s; }
+  .typing-algorithm span:nth-child(4) { animation-delay: 0.3s; }
+  .typing-algorithm span:nth-child(5) { animation-delay: 0.4s; }
+  .typing-algorithm span:nth-child(6) { animation-delay: 0.6s; }
+  .typing-algorithm span:nth-child(7) { animation-delay: 0.8s; }
+  .typing-algorithm span:nth-child(8) { animation-delay: 1s; }
+  .typing-algorithm span:nth-child(9) { animation-delay: 1.2s; }
+  .typing-algorithm span:nth-child(10) { animation-delay: 1.4s; }
+  .typing-algorithm span:nth-child(11) { animation-delay: 1.6s; }
+  .typing-algorithm span:nth-child(12) { animation-delay: 1.8s; }
+  .typing-algorithm span:nth-child(13) { animation-delay: 2s; }
+  .typing-algorithm span:nth-child(14) { animation-delay: 2.2s; }
+  .typing-algorithm span:nth-child(15) { animation-delay: 2.4s; }
+  .typing-algorithm span:nth-child(16) { animation-delay: 2.6s; }
 
   @keyframes typingAlgorithm {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
   }
-
-  /* 매트릭스 효과를 위한 스타일 */
+  
   .matrix-line {
     position: absolute;
     display: flex;
@@ -337,9 +358,15 @@
     animation: matrixfall 8s linear infinite;
     font-family: monospace;
     font-size: 10px;
-    opacity: 0.7;
+    z-index: 2;
+    pointer-events: none;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.9);
   }
-
+  
+  .matrix-line div {
+    animation: pulse 2s infinite alternate;
+  }
+  
   @keyframes matrixfall {
     0% { transform: translateY(-100%); }
     100% { transform: translateY(100vh); }
@@ -484,27 +511,25 @@
 .cta-button-shine::after {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
   background: linear-gradient(
-    to bottom right,
+    90deg,
     rgba(255, 255, 255, 0) 0%,
     rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0.3) 75%,
     rgba(255, 255, 255, 0) 100%
   );
-  transform: rotate(45deg);
-  animation: shine 3s infinite;
+  transform: skewX(-25deg);
+  animation: shine 6s infinite;
+  z-index: 1;
 }
 
 @keyframes shine {
-  0% {
-    transform: translateX(-100%) rotate(45deg);
-  }
-  20%, 100% {
-    transform: translateX(100%) rotate(45deg);
-  }
+  0% { left: -100%; }
+  20%, 100% { left: 200%; }
 }
 
 /* 서비스 페이지 애니메이션 효과 */
@@ -622,4 +647,148 @@
 .card-hover:hover {
   transform: perspective(1000px) rotateX(2deg) rotateY(2deg) scale(1.03);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 추가 애니메이션 효과 */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+  25% {
+    transform: translateY(-15px) translateX(10px);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-5px) translateX(15px);
+    opacity: 0.8;
+  }
+  75% {
+    transform: translateY(-10px) translateX(-10px);
+    opacity: 0.5;
+  }
+}
+
+.animate-spin-slow {
+  animation: spin 15s linear infinite;
+}
+
+.animate-spin-reverse-slow {
+  animation: spin 12s linear infinite reverse;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 코드 애니메이션 효과 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 10px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.3s ease-out forwards;
+}
+
+.typing-animation {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 1.5s steps(30, end);
+  border-right: 2px solid transparent;
+}
+
+.typing-animation::after {
+  content: "|";
+  position: absolute;
+  right: 0;
+  color: #38bdf8;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 0; }
+  50% { opacity: 1; }
+}
+
+/* 3D 변환 스타일 */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.rotateY {
+  transform: rotateY(var(--angle));
+}
+
+.rotateX {
+  transform: rotateX(var(--angle));
+}
+
+/* 추가 부유 효과 애니메이션 */
+.animate-float-delay {
+  animation: float 12s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(var(--rotation, 0deg));
+  }
+  50% {
+    transform: translateY(-15px) rotate(var(--rotation, 0deg));
+  }
+}
+
+/* 회전 애니메이션 */
+@keyframes rotate3d {
+  0% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(360deg) rotateY(360deg);
+  }
+}
+
+.animate-rotate-3d {
+  animation: rotate3d 20s linear infinite;
+}
+
+/* 크기 변화 애니메이션 */
+@keyframes scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-scale {
+  animation: scale 4s ease-in-out infinite;
 }

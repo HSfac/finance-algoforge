@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 import { FaChartLine, FaRobot, FaArrowRight } from 'react-icons/fa6';
@@ -131,39 +131,112 @@ export default function SolutionsPage() {
           <div className="data-line h-full w-full"></div>
         </div>
         
-        <div className="container relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-block px-4 py-1 rounded-full bg-blue-500/30 backdrop-blur-md border border-blue-500/40 mb-6 shadow-lg text-sm">
-              <span className="flex items-center gap-2">
-                <span className="inline-block w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                <span className="font-medium text-white">검증된 알고리즘 트레이딩 솔루션</span>
-              </span>
+        {/* 3D 그래픽 요소 추가 */}
+        <div className="absolute right-10 top-20 hidden lg:block">
+          <div className="relative">
+            {/* 3D 회전 큐브 */}
+            <div className="w-80 h-80 perspective-1000">
+              <div className="relative w-full h-full transform-style-3d animate-spin-slow">
+                <div className="absolute inset-0 bg-blue-600/10 border border-blue-500/40 backdrop-blur-sm rounded-xl transform rotateY(0deg) translateZ(40px)"></div>
+                <div className="absolute inset-0 bg-blue-600/10 border border-blue-500/40 backdrop-blur-sm rounded-xl transform rotateY(90deg) translateZ(40px)"></div>
+                <div className="absolute inset-0 bg-blue-600/10 border border-blue-500/40 backdrop-blur-sm rounded-xl transform rotateY(180deg) translateZ(40px)"></div>
+                <div className="absolute inset-0 bg-blue-600/10 border border-blue-500/40 backdrop-blur-sm rounded-xl transform rotateY(270deg) translateZ(40px)"></div>
+                <div className="absolute inset-0 bg-blue-600/10 border border-blue-500/40 backdrop-blur-sm rounded-xl transform rotateX(90deg) translateZ(40px)"></div>
+                <div className="absolute inset-0 bg-blue-600/10 border border-blue-500/40 backdrop-blur-sm rounded-xl transform rotateX(-90deg) translateZ(40px)"></div>
+              </div>
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-shadow-lg leading-tight">
-              당신의 <span className="text-blue-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">투자 전략</span>을<br />
-              <span className="text-blue-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">코드</span>로 구현합니다
-            </h1>
+            {/* 부유하는 코드 블록 */}
+            <div className="absolute -top-10 -right-10 bg-black/80 backdrop-blur-md p-3 rounded-lg shadow-xl border border-blue-500/30 text-blue-300 text-xs font-mono z-10 transform rotate-3 animate-float">
+              <div>
+                <span className="text-blue-400">function</span> <span className="text-green-400">algorithmicTrading</span><span className="text-white">()</span> {'{'}
+                <br/>
+                <span className="ml-4">return <span className="text-purple-400">optimize</span>(<span className="text-yellow-400">strategy</span>);</span>
+                <br/>
+                {'}'}
+              </div>
+            </div>
             
-            <p className="text-xl text-white/90 max-w-2xl leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] mb-8">
-              AlgoForge가 개발한 다양한 금융 알고리즘 매매 솔루션을 살펴보세요. 
-              각 솔루션은 철저한 백테스트와 실전 검증을 거쳐 안정적인 수익을 제공합니다.
-            </p>
+            {/* 차트 데이터 시각화 */}
+            <div className="absolute -bottom-10 -left-10 bg-black/70 backdrop-blur-md p-3 rounded-lg shadow-xl border border-blue-500/30 w-48 z-10 transform -rotate-3 animate-float-delay">
+              <div className="h-20 flex items-end justify-between gap-1">
+                {Array.from({ length: 12 }).map((_, i) => (
+                  <div 
+                    key={i} 
+                    className="w-2 bg-gradient-to-t from-blue-600 to-blue-400 rounded-t"
+                    style={{ height: `${Math.random() * 60 + 20}%` }}
+                  ></div>
+                ))}
+              </div>
+              <div className="text-xs text-center mt-2 text-blue-300 font-mono">Profit Analytics</div>
+            </div>
             
-            <div className="flex flex-wrap gap-3">
-              {CATEGORIES.map((category) => (
-                <button
-                  key={category.id}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 shadow-md ${
-                    activeCategory === category.id
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-black/40 backdrop-blur-sm text-white/80 hover:bg-blue-600/30 border border-white/10'
-                  }`}
-                  onClick={() => setActiveCategory(category.id)}
-                >
-                  {category.name}
-                </button>
-              ))}
+            {/* 부유하는 데이터 포인트 */}
+            {Array.from({ length: 15 }).map((_, i) => (
+              <div 
+                key={`data-point-${i}`}
+                className="absolute rounded-full bg-blue-400/40"
+                style={{
+                  width: `${Math.random() * 6 + 2}px`,
+                  height: `${Math.random() * 6 + 2}px`,
+                  top: `${Math.random() * 100}%`,
+                  left: `${Math.random() * 100}%`,
+                  animation: `float ${Math.random() * 10 + 10}s linear infinite`,
+                  animationDelay: `${Math.random() * 5}s`
+                }}
+              />
+            ))}
+          </div>
+        </div>
+        
+        <div className="container relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-3xl">
+              <div className="inline-block px-4 py-1 rounded-full bg-blue-500/30 backdrop-blur-md border border-blue-500/40 mb-6 shadow-lg text-sm">
+                <span className="flex items-center gap-2">
+                  <span className="inline-block w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
+                  <span className="font-medium text-white">검증된 알고리즘 트레이딩 솔루션</span>
+                </span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-shadow-lg leading-tight">
+                당신의 <span className="text-blue-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">투자 전략</span>을<br />
+                <span className="text-blue-300 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">코드</span>로 구현합니다
+              </h1>
+              
+              <p className="text-xl text-white/90 max-w-2xl leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)] mb-8">
+                AlgoForge가 개발한 다양한 금융 알고리즘 매매 솔루션을 살펴보세요. 
+                각 솔루션은 철저한 백테스트와 실전 검증을 거쳐 안정적인 수익을 제공합니다.
+              </p>
+              
+              <div className="flex flex-wrap gap-3">
+                {CATEGORIES.map((category) => (
+                  <button
+                    key={category.id}
+                    className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 shadow-md ${
+                      activeCategory === category.id
+                        ? 'bg-blue-600 text-white'
+                        : 'bg-black/40 backdrop-blur-sm text-white/80 hover:bg-blue-600/30 border border-white/10'
+                    }`}
+                    onClick={() => setActiveCategory(category.id)}
+                  >
+                    {category.name}
+                  </button>
+                ))}
+              </div>
+            </div>
+            
+            {/* 모바일용 시각화 (lg 미만 화면에서만 표시) */}
+            <div className="lg:hidden">
+              <div className="bg-black/40 backdrop-blur-md p-4 rounded-xl border border-blue-500/30">
+                <div className="text-center text-blue-400 text-sm font-mono mb-3">Algorithmic Trading Solutions</div>
+                <div className="flex items-end justify-between h-32 mb-3">
+                  {Array.from({ length: 7 }).map((_, i) => (
+                    <div key={i} className="w-8 bg-gradient-to-t from-blue-600 to-blue-400/50 rounded-t flex-grow mx-0.5" style={{ height: `${Math.random() * 60 + 30}%` }}></div>
+                  ))}
+                </div>
+                <div className="text-xs text-center text-white/70">Performance Metrics</div>
+              </div>
             </div>
           </div>
         </div>
@@ -220,7 +293,7 @@ export default function SolutionsPage() {
                       </div>
                       
                       <Link href="/contact">
-                        <Button variant="outline" size="sm" className="w-full group bg-black/30 border-blue-500/30 text-white hover:bg-blue-500/20">
+                        <Button variant="outline" size="sm" className="w-full group bg-blue-900/30 border-blue-500/50 text-blue-300 hover:bg-blue-500/30 hover:text-white hover:border-blue-400">
                           <span className="flex items-center justify-center gap-2">
                             문의하기
                             <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform duration-300" />
@@ -302,13 +375,16 @@ export default function SolutionsPage() {
                     
                     <Link href="/contact">
                       <Button 
-                        variant="accent" 
-                        size="lg"
-                        className="w-full shadow-xl shadow-blue-600/20 transform hover:scale-105 transition-all duration-300 font-bold bg-blue-600 text-white h-14 text-lg"
+                        variant="default" 
+                        size="lg" 
+                        className="w-full shadow-xl hover:scale-105 transition-transform duration-300 text-white font-bold bg-gradient-to-r from-blue-700 to-blue-500 shadow-blue-900/30"
                       >
-                        <span className="flex items-center justify-center gap-2">
+                        <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-blue-600 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <span className="absolute -top-10 -left-10 w-16 h-16 bg-blue-400/40 rounded-full blur-2xl group-hover:animate-pulse"></span>
+                        <span className="absolute -bottom-10 -right-10 w-16 h-16 bg-blue-400/40 rounded-full blur-2xl group-hover:animate-pulse"></span>
+                        <span className="flex items-center justify-center gap-2 relative z-10">
                           맞춤형 솔루션 문의하기
-                          <FaArrowRight className="text-sm" />
+                          <FaArrowRight className="text-sm group-hover:translate-x-1 transition-transform duration-300" />
                         </span>
                       </Button>
                     </Link>
