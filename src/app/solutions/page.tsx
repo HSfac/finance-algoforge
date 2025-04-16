@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import SolutionCard from '@/components/ui/SolutionCard';
 import Button from '@/components/ui/Button';
 import Link from 'next/link';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';

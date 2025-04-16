@@ -1,16 +1,15 @@
 'use client';
 
-import Button from '@/components/ui/Button';
-import StatCard from '@/components/ui/StatCard';
-import CounterAnimation from '@/components/ui/CounterAnimation';
-import ChartCard from '@/components/ui/ChartCard';
-import HeroBackground from '@/components/ui/HeroBackground';
-import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import { FaChartLine, FaRobot, FaDatabase, FaDesktop, FaArrowRight, FaUsers } from 'react-icons/fa6';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
+import 'chart.js/auto';
+import { FaRobot, FaChartLine, FaCogs, FaShieldAlt, FaArrowRight, FaGithub, FaDatabase } from 'react-icons/fa';
+import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
+import Link from 'next/link';
+import Button from '@/components/ui/Button';
+import CounterAnimation from '@/components/ui/CounterAnimation';
+import HeroBackground from '@/components/ui/HeroBackground';
+import { motion } from 'framer-motion';
 import {
   Chart as ChartJS,
   CategoryScale,
