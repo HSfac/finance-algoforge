@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { FaChartPie, FaGlobe, FaSyncAlt, FaLayerGroup, FaChartLine, FaBriefcase, FaShieldAlt, FaRegLightbulb, FaBalanceScale } from 'react-icons/fa';
 import ServiceTemplate from '../service-template';
 import AssetAllocationChart from '@/components/visualizations/AssetAllocationChart';
 

@@ -29,7 +29,7 @@ const TermsPage = () => {
                   </p>
                 </div>
                 <p className="text-gray-700 mb-6">
-                  주식회사 알고포지(이하 '회사'라 함)가 제공하는 서비스를 이용해 주셔서 감사합니다. 본 약관은 회사가 제공하는 모든 서비스의 이용조건 및 절차, 이용자와 회사의 권리, 의무, 책임사항과 기타 필요한 사항을 규정합니다.
+                  주식회사 알고포지(이하 &apos;회사&apos;라 함)가 제공하는 서비스를 이용해 주셔서 감사합니다. 본 약관은 회사가 제공하는 모든 서비스의 이용조건 및 절차, 이용자와 회사의 권리, 의무, 책임사항과 기타 필요한 사항을 규정합니다.
                 </p>
               </div>
             </AnimatedItem>
@@ -92,27 +92,27 @@ const TermsPage = () => {
                 </p>
                 
                 <div className="pl-4">
-                  <h3 className="text-lg font-bold mb-2 font-heading">1. '서비스'</h3>
+                  <h3 className="text-lg font-bold mb-2 font-heading">1. &apos;서비스&apos;</h3>
                   <p className="text-gray-700 mb-4">
                     이용자가 회사의 웹사이트 또는 애플리케이션을 통해 이용할 수 있는 금융 알고리즘 개발, 자동매매 시스템, API 연동, 리스크 관리 툴 등 회사가 제공하는 모든 서비스를 말합니다.
                   </p>
                   
-                  <h3 className="text-lg font-bold mb-2 font-heading">2. '회원'</h3>
+                  <h3 className="text-lg font-bold mb-2 font-heading">2. &apos;회원&apos;</h3>
                   <p className="text-gray-700 mb-4">
                     회사와 서비스 이용계약을 체결하고 회원 아이디(ID)를 부여받아 서비스를 이용하는 자를 말합니다.
                   </p>
                   
-                  <h3 className="text-lg font-bold mb-2 font-heading">3. '아이디(ID)'</h3>
+                  <h3 className="text-lg font-bold mb-2 font-heading">3. &apos;아이디(ID)&apos;</h3>
                   <p className="text-gray-700 mb-4">
                     회원의 식별과 서비스 이용을 위하여 회원이 설정하고 회사가 승인하는 문자와 숫자의 조합을 말합니다.
                   </p>
                   
-                  <h3 className="text-lg font-bold mb-2 font-heading">4. '비밀번호'</h3>
+                  <h3 className="text-lg font-bold mb-2 font-heading">4. &apos;비밀번호&apos;</h3>
                   <p className="text-gray-700 mb-4">
                     회원이 부여받은 아이디와 일치되는 회원임을 확인하고 비밀보호를 위해 회원 자신이 설정한 문자 또는 숫자의 조합을 말합니다.
                   </p>
                   
-                  <h3 className="text-lg font-bold mb-2 font-heading">5. '게시물'</h3>
+                  <h3 className="text-lg font-bold mb-2 font-heading">5. &apos;게시물&apos;</h3>
                   <p className="text-gray-700">
                     회원이 서비스를 이용하면서 게시한 글, 사진, 동영상, 파일, 링크, 댓글 등의 정보를 말합니다.
                   </p>
@@ -128,7 +128,7 @@ const TermsPage = () => {
                   1. 회사는 이 약관의 내용을 회원이 알 수 있도록 서비스 초기화면에 게시하거나 기타의 방법으로 공지합니다.
                 </p>
                 <p className="text-gray-700 mb-4">
-                  2. 회사는 "약관의 규제에 관한 법률", "정보통신망 이용촉진 및 정보보호 등에 관한 법률" 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.
+                  2. 회사는 &quot;약관의 규제에 관한 법률&quot;, &quot;정보통신망 이용촉진 및 정보보호 등에 관한 법률&quot; 등 관련법을 위배하지 않는 범위에서 이 약관을 개정할 수 있습니다.
                 </p>
                 <p className="text-gray-700 mb-4">
                   3. 회사가 약관을 개정할 경우에는 적용일자 및 개정사유를 명시하여 현행약관과 함께 서비스 초기화면에 그 적용일자 7일 이전부터 적용일자 전일까지 공지합니다. 다만, 회원에게 불리한 약관의 개정의 경우에는 적용일자 30일 이전부터 공지합니다.
@@ -262,7 +262,7 @@ const TermsPage = () => {
                 <p className="text-gray-700 mb-4">
                   2. 회원은 서비스를 이용함으로써 얻은 정보 중 회사에게 지적재산권이 귀속된 정보를 회사의 사전 승낙 없이 복제, 송신, 출판, 배포, 방송 기타 방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 하여서는 안됩니다.
                 </p>
-                <p className="text-gray-700">
+                <p className="text-gray-700 mb-4">
                   3. 회원이 서비스 내에 게시한 게시물의 저작권은 해당 게시물의 저작자에게 귀속됩니다. 회원이 서비스 내에 게시하는 게시물은 검색결과 내지 서비스 및 관련 프로모션 등에 노출될 수 있으며, 해당 노출을 위해 필요한 범위 내에서는 일부 수정, 복제, 편집되어 게시될 수 있습니다. 이 경우, 회사는 저작권법 규정을 준수하며, 회원은 언제든지 고객센터 또는 서비스 내 관리기능을 통해 해당 게시물에 대해 삭제, 검색결과 제외, 비공개 등의 조치를 취할 수 있습니다.
                 </p>
               </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { FaRobot, FaChartLine, FaBrain, FaRegLightbulb, FaDatabase, FaNetworkWired, FaTable } from 'react-icons/fa';
 import ServiceTemplate from '../service-template';
 import QuantStrategyChart from '@/components/visualizations/QuantStrategyChart';
 
