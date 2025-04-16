@@ -180,6 +180,29 @@ export default function ContactPage() {
                 <span className="block mt-2">당신의 트레이딩 아이디어를 현실로 구현하는 첫 걸음을 함께 시작하세요.</span>
               </p>
               
+              {/* 상담 버튼 추가 */}
+              <div className="mb-8">
+                <button
+                  onClick={() => {
+                    const contactForm = document.getElementById('contact-form');
+                    if (contactForm) {
+                      contactForm.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="flex items-center px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-blue-500 to-blue-600 
+                    hover:from-blue-600 hover:to-blue-700 rounded-full transition-all duration-300 
+                    shadow-[0_4px_15px_rgba(59,130,246,0.3)] gap-2 transform hover:scale-105"
+                >
+                  <span className="relative">
+                    지금 바로 문의하기
+                    <span className="absolute -bottom-1 left-0 right-0 h-[2px] bg-white/30 rounded-full"></span>
+                  </span>
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 animate-bounce" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                  </svg>
+                </button>
+              </div>
+              
               {/* 통계 지표 추가 */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
                 <div className="bg-blue-900/20 backdrop-blur-sm rounded-lg p-4 border border-blue-500/20">
