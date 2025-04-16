@@ -3,6 +3,10 @@ import { IBM_Plex_Sans, Noto_Sans_KR } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import { FixedBanner } from '@/components/FixedBanner';
+import { MobileBanner } from '@/components/MobileBanner';
+import { Providers } from '@/app/providers';
+import CookieConsent from '@/components/ui/CookieConsent';
 
 const ibmPlexSans = IBM_Plex_Sans({
   variable: "--font-ibm-plex-sans",
@@ -32,13 +36,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="ko" suppressHydrationWarning>
       <body
         className={`${ibmPlexSans.variable} ${notoSansKr.variable} antialiased bg-background text-text min-h-screen flex flex-col`}
       >
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
+        <Providers>
+          <div className="relative flex min-h-screen flex-col">
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <FixedBanner showOnMobile={false} />
+            <MobileBanner />
+            <Footer />
+            <CookieConsent />
+          </div>
+        </Providers>
       </body>
     </html>
   );

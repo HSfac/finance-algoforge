@@ -13,7 +13,7 @@ interface CounterAnimationProps {
 
 const CounterAnimation = ({
   end,
-  duration = 2000,
+  duration = 1000,
   decimals = 0,
   prefix = '',
   suffix = '',
@@ -37,7 +37,7 @@ const CounterAnimation = ({
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
 
     if (counterRef.current) {

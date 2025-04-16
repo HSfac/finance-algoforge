@@ -15,8 +15,8 @@ const sectionVariants: Variants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.5,
-      staggerChildren: 0.1,
+      duration: 0.3,
+      staggerChildren: 0.05,
     },
   },
 };
@@ -26,7 +26,7 @@ const childVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 },
+    transition: { duration: 0.3 },
   },
 };
 
@@ -40,7 +40,7 @@ const AnimatedSection = ({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }}
+      viewport={{ once: true, margin: '-200px' }}
       variants={sectionVariants}
       transition={{ delay }}
     >
