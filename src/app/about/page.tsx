@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { FaChartLine, FaLightbulb } from 'react-icons/fa';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 
@@ -286,7 +285,7 @@ const AboutPage = () => {
                     
                     <div className="text-center">
                       <p className="text-white/80 italic">
-                        "알고리즘은 감정이 아닌 <span className="font-bold text-blue-400">데이터</span>로 결정하기 때문에 장기적으로 더 나은 결과를 만듭니다."
+                        &quot;알고리즘은 감정이 아닌 <span className="font-bold text-blue-400">데이터</span>로 결정하기 때문에 장기적으로 더 나은 결과를 만듭니다.&quot;
                       </p>
                     </div>
                   </div>
@@ -396,7 +395,7 @@ const AboutPage = () => {
                     <h3 className="text-xl font-bold font-heading text-white">2022년</h3>
                     <p className="text-sm text-blue-400 font-medium mb-2">2월</p>
                     <p className="text-white/70">
-                      엔터프라이즈급 자동매매 플랫폼 'AlgoForge Pro' 출시
+                      엔터프라이즈급 자동매매 플랫폼 &apos;AlgoForge Pro&apos; 출시
                     </p>
                   </div>
                 </div>

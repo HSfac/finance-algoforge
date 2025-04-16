@@ -1367,7 +1367,7 @@ export default function Home() {
                       성공 사례
                     </div>
                     <h3 className="text-3xl md:text-4xl font-bold mb-6 font-heading text-white leading-tight">
-                      "알고리즘 매매로<br/>운용 자산 <span className="text-primary">30% 증가</span>"
+                      &quot;알고리즘 매매로<br/>운용 자산 <span className="text-primary">30% 증가</span>&quot;
                     </h3>
                     
                     <div className="p-6 bg-black/40 rounded-xl relative mb-8 backdrop-blur-sm border border-white/10">

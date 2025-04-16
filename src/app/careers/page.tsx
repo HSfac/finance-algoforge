@@ -1,9 +1,9 @@
 'use client';
 
+import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { FaArrowRight, FaUsers, FaChartLine, FaLaptopCode, FaGraduationCap } from 'react-icons/fa';
-import AnimatedSection from '@/components/ui/AnimatedSection';
+import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
 
 // 채용 공고 데이터
 const jobOpenings = [
@@ -66,7 +66,7 @@ const jobOpenings = [
   }
 ];
 
-export default function CareersPage() {
+const CareersPage = () => {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-white">
       {/* 헤더 섹션 */}

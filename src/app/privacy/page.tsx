@@ -234,7 +234,7 @@ const PrivacyPage = () => {
               <div id="section7" className="mb-12">
                 <h2 className="text-2xl font-bold mb-4 font-heading">7. 개인정보 자동 수집 장치의 설치·운영 및 거부에 관한 사항</h2>
                 <p className="text-gray-700 mb-4">
-                  회사는 이용자에게 개별적인 맞춤서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 '쿠키(cookie)'를 사용합니다.
+                  회사는 이용자에게 개별적인 맞춤서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 &apos;쿠키(cookie)&apos;를 사용합니다.
                 </p>
                 <p className="text-gray-700 mb-4">
                   쿠키는 웹사이트를 운영하는데 이용되는 서버가 이용자의 브라우저에게 보내는 소량의 정보이며 이용자들의 PC 컴퓨터 내의 하드디스크에 저장되기도 합니다.
