@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { FaRobot, FaChartLine, FaCogs, FaShieldAlt, FaArrowRight, FaGithub, FaDatabase } from 'react-icons/fa';

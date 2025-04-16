@@ -66,7 +66,8 @@ const jobOpenings = [
   }
 ];
 
-export default function CareersPage() {
+// CareersPage 컴포넌트를 기본 내보내기로 사용
+export default function Page() {
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-white">
       {/* 헤더 섹션 */}
