@@ -993,7 +993,7 @@ export default function Home() {
       `}</style>
 
       {/* 핵심 성과 지표 섹션 추가 */}
-      <AnimatedSection className="bg-gradient-to-b from-gray-900 via-black to-black py-20 relative overflow-hidden">
+      <AnimatedSection className="bg-gradient-to-b from-gray-900 via-black to-black py-12 md:py-20 relative overflow-hidden">
         {/* 배경 효과 */}
         <div className="absolute inset-0 bg-grid-pattern opacity-10"></div>
         <div className="absolute inset-0 overflow-hidden opacity-20">
@@ -1001,28 +1001,28 @@ export default function Home() {
           <div className="absolute bottom-20 right-1/3 w-96 h-96 rounded-full border border-blue-500/20 animate-pulse-slow"></div>
         </div>
         
-        <div className="container relative z-10">
+        <div className="container relative z-10 px-4 md:px-8">
           <AnimatedItem>
-            <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="max-w-3xl mx-auto text-center mb-10 md:mb-16">
               <div className="inline-block px-4 py-1 rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/40 mb-4 text-sm font-medium text-blue-400 shadow-lg">
                 <span className="flex items-center gap-2">
                   <span className="inline-block w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
                   실시간 트레이딩 지표
                 </span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-6 font-heading text-shadow-lg text-white">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 font-heading text-shadow-lg text-white">
                 <span className="text-blue-400 drop-shadow-[0_2px_8px_rgba(59,130,246,0.7)]">알고리즘</span>이 만드는 성과
               </h2>
-              <p className="text-xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">
+              <p className="text-base md:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]">
                 24시간 쉬지 않고 작동하는 자동화 트레이딩 시스템의 실시간 성과를 확인하세요
               </p>
             </div>
           </AnimatedItem>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             <AnimatedItem delay={0.1}>
               <div className="bg-black/40 backdrop-blur-md p-1 rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-                <div className="bg-gradient-to-br from-black/80 to-gray-900/90 rounded-xl p-6 relative overflow-hidden h-full">
+                <div className="bg-gradient-to-br from-black/80 to-gray-900/90 rounded-xl p-4 md:p-6 relative overflow-hidden h-full">
                   {/* 배경 효과 */}
                   <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-500/5 rounded-full blur-xl"></div>
                   
@@ -1035,9 +1035,9 @@ export default function Home() {
                       </div>
                     </div>
                     
-                    <h3 className="text-lg font-bold text-white mb-3">신호 정확도</h3>
-                    <div className="flex items-center gap-2 mb-6">
-                      <span className="text-4xl font-bold font-heading text-blue-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                    <h3 className="text-lg font-bold text-white mb-2 md:mb-3">신호 정확도</h3>
+                    <div className="flex items-center gap-2 mb-4 md:mb-6">
+                      <span className="text-3xl md:text-4xl font-bold font-heading text-blue-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                         <CounterAnimation end={93.7} decimals={1} suffix="%" />
                       </span>
                     </div>
@@ -1062,7 +1062,7 @@ export default function Home() {
             
             <AnimatedItem delay={0.2}>
               <div className="bg-black/40 backdrop-blur-md p-1 rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-                <div className="bg-gradient-to-br from-black/80 to-gray-900/90 rounded-xl p-6 relative overflow-hidden h-full">
+                <div className="bg-gradient-to-br from-black/80 to-gray-900/90 rounded-xl p-4 md:p-6 relative overflow-hidden h-full">
                   {/* 배경 효과 */}
                   <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-500/5 rounded-full blur-xl"></div>
                   
@@ -1075,9 +1075,9 @@ export default function Home() {
                       </div>
                     </div>
                     
-                    <h3 className="text-lg font-bold text-white mb-3">샤프 비율</h3>
-                    <div className="flex items-center gap-2 mb-6">
-                      <span className="text-4xl font-bold font-heading text-blue-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                    <h3 className="text-lg font-bold text-white mb-2 md:mb-3">샤프 비율</h3>
+                    <div className="flex items-center gap-2 mb-4 md:mb-6">
+                      <span className="text-3xl md:text-4xl font-bold font-heading text-blue-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                         <CounterAnimation end={2.43} decimals={2} suffix="" />
                       </span>
                     </div>
@@ -1105,7 +1105,7 @@ export default function Home() {
             
             <AnimatedItem delay={0.3}>
               <div className="bg-black/40 backdrop-blur-md p-1 rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-                <div className="bg-gradient-to-br from-black/80 to-gray-900/90 rounded-xl p-6 relative overflow-hidden h-full">
+                <div className="bg-gradient-to-br from-black/80 to-gray-900/90 rounded-xl p-4 md:p-6 relative overflow-hidden h-full">
                   {/* 배경 효과 */}
                   <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-green-500/5 rounded-full blur-xl"></div>
                   
@@ -1118,9 +1118,9 @@ export default function Home() {
                       </div>
                     </div>
                     
-                    <h3 className="text-lg font-bold text-white mb-3">최대 손실폭</h3>
-                    <div className="flex items-center gap-2 mb-6">
-                      <span className="text-4xl font-bold font-heading text-green-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                    <h3 className="text-lg font-bold text-white mb-2 md:mb-3">최대 손실폭</h3>
+                    <div className="flex items-center gap-2 mb-4 md:mb-6">
+                      <span className="text-3xl md:text-4xl font-bold font-heading text-green-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                         <CounterAnimation end={8.2} decimals={1} suffix="%" />
                       </span>
                     </div>
@@ -1141,7 +1141,7 @@ export default function Home() {
             
             <AnimatedItem delay={0.4}>
               <div className="bg-black/40 backdrop-blur-md p-1 rounded-2xl overflow-hidden border border-white/10 shadow-xl">
-                <div className="bg-gradient-to-br from-black/80 to-gray-900/90 rounded-xl p-6 relative overflow-hidden h-full">
+                <div className="bg-gradient-to-br from-black/80 to-gray-900/90 rounded-xl p-4 md:p-6 relative overflow-hidden h-full">
                   {/* 배경 효과 */}
                   <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-purple-500/5 rounded-full blur-xl"></div>
                   
@@ -1154,9 +1154,9 @@ export default function Home() {
                       </div>
                     </div>
                     
-                    <h3 className="text-lg font-bold text-white mb-3">승률</h3>
-                    <div className="flex items-center gap-2 mb-6">
-                      <span className="text-4xl font-bold font-heading text-purple-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+                    <h3 className="text-lg font-bold text-white mb-2 md:mb-3">승률</h3>
+                    <div className="flex items-center gap-2 mb-4 md:mb-6">
+                      <span className="text-3xl md:text-4xl font-bold font-heading text-purple-400 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                         <CounterAnimation end={78} suffix="%" />
                       </span>
                     </div>
@@ -1178,7 +1178,7 @@ export default function Home() {
           </div>
           
           <AnimatedItem delay={0.5}>
-            <div className="flex justify-center mt-12">
+            <div className="flex justify-center mt-8 md:mt-12">
               <Link href="/performance">
                 <Button 
                   variant="outline" 
