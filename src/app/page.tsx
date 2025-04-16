@@ -372,7 +372,7 @@ const CodeAnimation = ({ show, onComplete }: CodeAnimationProps) => {
     if (show) {
       timer = setTimeout(() => {
         onComplete();
-      }, 1500); // 1.5초 후에 애니메이션 완료 콜백 실행
+      }, 2500); // 2.5초 후에 애니메이션 완료 콜백 실행
     }
     return () => {
       if (timer) clearTimeout(timer);
@@ -394,48 +394,48 @@ const CodeAnimation = ({ show, onComplete }: CodeAnimationProps) => {
         </div>
         <div className="p-4 bg-black rounded-b-lg border border-gray-700 h-80 overflow-auto">
           <div className="typing-algorithm">
-            <span style={{ animationDelay: '0.05s' }}>{'>'} 무료상담 신청 요청 처리중...</span>
+            <span style={{ animationDelay: '0.1s' }}>{'>'} 무료상담 신청 요청 처리중...</span>
             <div className="mt-2">
-              <span style={{ animationDelay: '0.15s' }}>{'>'} 금융 알고리즘 분석 모듈 초기화</span>
+              <span style={{ animationDelay: '0.25s' }}>{'>'} 금융 알고리즘 분석 모듈 초기화</span>
             </div>
             <div className="mt-1">
-              <span style={{ animationDelay: '0.3s' }}>{'>'} 사용자 데이터 로드중...</span>
+              <span style={{ animationDelay: '0.5s' }}>{'>'} 사용자 데이터 로드중...</span>
             </div>
             <div className="mt-1">
-              <span style={{ animationDelay: '0.4s' }}>{'>'} 최적화된 상담 알고리즘 검색중...</span>
+              <span style={{ animationDelay: '0.7s' }}>{'>'} 최적화된 상담 알고리즘 검색중...</span>
             </div>
             <div className="mt-2 text-blue-400">
-              <span style={{ animationDelay: '0.5s' }}>{'>'} 전략 매칭 알고리즘 실행:</span>
+              <span style={{ animationDelay: '0.9s' }}>{'>'} 전략 매칭 알고리즘 실행:</span>
             </div>
             <div className="mt-1 text-green-400">
-              <span style={{ animationDelay: '0.6s' }}>matchStrategy(user) {'{'}</span>
+              <span style={{ animationDelay: '1.1s' }}>matchStrategy(user) {'{'}</span>
             </div>
             <div className="ml-4 text-gray-400">
-              <span style={{ animationDelay: '0.7s' }}>const userPreferences = await getUserData();</span>
+              <span style={{ animationDelay: '1.3s' }}>const userPreferences = await getUserData();</span>
             </div>
             <div className="ml-4 text-gray-400">
-              <span style={{ animationDelay: '0.8s' }}>const riskProfile = calculateRiskProfile(userPreferences);</span>
+              <span style={{ animationDelay: '1.45s' }}>const riskProfile = calculateRiskProfile(userPreferences);</span>
             </div>
             <div className="ml-4 text-gray-400">
-              <span style={{ animationDelay: '0.9s' }}>const optimalStrategies = findOptimalStrategies(riskProfile);</span>
+              <span style={{ animationDelay: '1.6s' }}>const optimalStrategies = findOptimalStrategies(riskProfile);</span>
             </div>
             <div className="ml-4 text-gray-400">
-              <span style={{ animationDelay: '1.0s' }}>await prepareCustomConsultation(optimalStrategies);</span>
+              <span style={{ animationDelay: '1.75s' }}>await prepareCustomConsultation(optimalStrategies);</span>
             </div>
             <div className="ml-4 text-green-400">
-              <span style={{ animationDelay: '1.1s' }}>console.log("상담 준비 완료!");</span>
+              <span style={{ animationDelay: '1.9s' }}>console.log("상담 준비 완료!");</span>
             </div>
             <div className="text-green-400">
-              <span style={{ animationDelay: '1.15s' }}>{'}'}</span>
+              <span style={{ animationDelay: '2.0s' }}>{'}'}</span>
             </div>
             <div className="mt-2">
-              <span style={{ animationDelay: '1.2s' }}>{'>'} 상담 페이지로 리디렉션 준비중...</span>
+              <span style={{ animationDelay: '2.1s' }}>{'>'} 상담 페이지로 리디렉션 준비중...</span>
             </div>
             <div className="mt-1 text-yellow-400">
-              <span style={{ animationDelay: '1.3s' }}>{'>'} window.location = "/contact";</span>
+              <span style={{ animationDelay: '2.25s' }}>{'>'} window.location = "/contact";</span>
             </div>
             <div className="mt-2 text-blue-400 font-bold">
-              <span style={{ animationDelay: '1.4s' }}>{'>'} 페이지 이동 완료!</span>
+              <span style={{ animationDelay: '2.4s' }}>{'>'} 페이지 이동 완료!</span>
             </div>
           </div>
         </div>
