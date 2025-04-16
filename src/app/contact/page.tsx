@@ -259,7 +259,7 @@ export default function ContactPage() {
             <div className="lg:col-span-2">
               <div className="bg-black/50 backdrop-blur-lg p-8 rounded-2xl border border-blue-500/20 shadow-2xl">
                 {!isSubmitted ? (
-                  <form onSubmit={handleSubmit}>
+                  <form id="contact-form" onSubmit={handleSubmit}>
                     <h2 className="text-2xl font-bold mb-6 font-heading text-white">문의 양식</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">

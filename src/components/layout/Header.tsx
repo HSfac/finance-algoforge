@@ -80,15 +80,30 @@ export const CodeAnimationProvider: React.FC<{children: React.ReactNode}> = ({ c
         clearInterval(typingInterval);
         setCodeComplete(true);
         setTimeout(() => {
-          router.push('/contact');
+          if (pathname !== '/contact') {
+            router.push('/contact');
+          } else {
+            // 이미 contact 페이지에 있는 경우 모달만 닫음
+            setShowConsultCode(false);
+          }
         }, 1000);
       }
     }, typingSpeed);
     
     return () => clearInterval(typingInterval);
-  }, [showConsultCode, router]);
+  }, [showConsultCode, router, pathname]);
   
   const startCodeAnimation = () => {
+    // 이미 contact 페이지에 있는 경우 애니메이션 표시하지 않음
+    if (pathname === '/contact') {
+      // 페이지의 상담 폼으로 스크롤 이동시키기
+      const contactForm = document.getElementById('contact-form');
+      if (contactForm) {
+        contactForm.scrollIntoView({ behavior: 'smooth' });
+      }
+      return;
+    }
+    
     setCodeText('');
     setCodeComplete(false);
     setShowConsultCode(true);
