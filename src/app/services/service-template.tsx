@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { FaArrowRight, FaLightbulb } from 'react-icons/fa';
@@ -84,6 +84,24 @@ const ServiceTemplate = ({
   // introImage가 문자열인지 컴포넌트인지 확인
   const isImageComponent = typeof introImage !== 'string';
   
+  // 클라이언트 사이드에서만 실행되도록 처리
+  const [particles, setParticles] = useState([]);
+  
+  useEffect(() => {
+    // 클라이언트 측에서만 실행되는 코드
+    const particlesArray = [...Array(30)].map((_, i) => ({
+      id: i,
+      initialX: Math.random() * window.innerWidth,
+      initialY: Math.random() * window.innerHeight,
+      targetX: Math.random() * window.innerWidth,
+      targetY: Math.random() * window.innerHeight,
+      size: Math.random() * 3 + 1,
+      duration: 15 + Math.random() * 10
+    }));
+    
+    setParticles(particlesArray);
+  }, []);
+  
   return (
     <main className="flex flex-col items-center justify-center min-h-screen bg-slate-950 text-white">
       {/* 헤더 섹션 - 유려한 애니메이션 배경 */}
@@ -94,26 +112,26 @@ const ServiceTemplate = ({
         {/* 움직이는 파티클 */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -inset-[10px] opacity-30">
-            {[...Array(30)].map((_, i) => (
+            {particles.map((particle) => (
               <motion.div 
-                key={i} 
+                key={particle.id} 
                 className="absolute"
                 initial={{
-                  x: Math.random() * window.innerWidth,
-                  y: Math.random() * window.innerHeight,
+                  x: particle.initialX,
+                  y: particle.initialY,
                 }}
                 animate={{
-                  x: Math.random() * window.innerWidth,
-                  y: Math.random() * window.innerHeight,
+                  x: particle.targetX,
+                  y: particle.targetY,
                 }}
                 transition={{
-                  duration: 15 + Math.random() * 10,
+                  duration: particle.duration,
                   repeat: Infinity,
                   ease: "linear"
                 }}
                 style={{
-                  width: `${Math.random() * 3 + 1}px`,
-                  height: `${Math.random() * 3 + 1}px`,
+                  width: `${particle.size}px`,
+                  height: `${particle.size}px`,
                   background: 'white',
                   borderRadius: '50%',
                   boxShadow: '0 0 10px 2px rgba(255, 255, 255, 0.6)'
