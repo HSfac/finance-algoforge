@@ -442,17 +442,424 @@ export default function ServicesPage() {
             
             <div className="relative">
               <motion.div 
-                className="w-full h-96 bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-2xl backdrop-blur-sm border border-slate-800"
+                className="w-full h-96 bg-gradient-to-br from-blue-900/30 to-purple-900/30 rounded-2xl backdrop-blur-sm border border-slate-800 overflow-hidden relative"
                 whileInView={{ y: [10, -10, 10] }}
                 transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                 viewport={{ once: true }}
               >
+                {/* 배경 그리드 */}
+                <div className="absolute inset-0 bg-[linear-gradient(rgba(59,130,246,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(59,130,246,0.1)_1px,transparent_1px)] bg-[size:20px_20px] opacity-20"></div>
+                
+                {/* 뇌 시각화 영역 */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-80 h-80 relative">
-                    {/* 여기에 기술 그래픽이나 애니메이션 요소를 추가할 수 있습니다 */}
-                    <div className="absolute w-32 h-32 bg-blue-500/20 backdrop-blur-md rounded-full top-0 left-0 animate-pulse"></div>
-                    <div className="absolute w-24 h-24 bg-purple-500/20 backdrop-blur-md rounded-full bottom-10 right-10 animate-pulse" style={{animationDelay: "1s"}}></div>
-                    <div className="absolute w-40 h-40 bg-green-500/10 backdrop-blur-md rounded-full bottom-0 left-10 animate-pulse" style={{animationDelay: "2s"}}></div>
+                  <div className="w-full h-full relative p-4">
+                    {/* 뇌 외형 */}
+                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-56 z-20">
+                      {/* 뇌 외형 */}
+                      <motion.div
+                        className="absolute w-full h-full"
+                        animate={{
+                          scale: [0.98, 1.02, 0.98]
+                        }}
+                        transition={{
+                          duration: 8,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        {/* 좌측 대뇌 반구 */}
+                        <motion.div
+                          className="absolute w-[45%] h-[85%] left-0 top-[10%] rounded-full bg-gradient-to-br from-blue-400/20 to-blue-600/20 backdrop-blur-sm border border-blue-500/30"
+                          style={{
+                            borderTopRightRadius: '40%',
+                            borderBottomRightRadius: '40%'
+                          }}
+                          animate={{
+                            boxShadow: [
+                              'inset 0 0 20px 5px rgba(59, 130, 246, 0.1)',
+                              'inset 0 0 30px 10px rgba(59, 130, 246, 0.2)',
+                              'inset 0 0 20px 5px rgba(59, 130, 246, 0.1)'
+                            ]
+                          }}
+                          transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        />
+                        
+                        {/* 우측 대뇌 반구 */}
+                        <motion.div
+                          className="absolute w-[45%] h-[85%] right-0 top-[10%] rounded-full bg-gradient-to-bl from-purple-400/20 to-purple-600/20 backdrop-blur-sm border border-purple-500/30"
+                          style={{
+                            borderTopLeftRadius: '40%',
+                            borderBottomLeftRadius: '40%'
+                          }}
+                          animate={{
+                            boxShadow: [
+                              'inset 0 0 20px 5px rgba(168, 85, 247, 0.1)',
+                              'inset 0 0 30px 10px rgba(168, 85, 247, 0.2)',
+                              'inset 0 0 20px 5px rgba(168, 85, 247, 0.1)'
+                            ]
+                          }}
+                          transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: 1
+                          }}
+                        />
+                        
+                        {/* 소뇌 부분 */}
+                        <motion.div
+                          className="absolute w-[30%] h-[35%] left-1/2 transform -translate-x-1/2 bottom-0 rounded-b-full bg-gradient-to-t from-green-400/20 to-blue-600/10 backdrop-blur-sm border border-green-500/30"
+                          animate={{
+                            y: [0, -2, 0]
+                          }}
+                          transition={{
+                            duration: 6,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        />
+                        
+                        {/* 뇌간 */}
+                        <div className="absolute w-[10%] h-[15%] left-1/2 transform -translate-x-1/2 bottom-0 bg-gradient-to-b from-blue-400/20 to-green-400/20 rounded-lg" />
+                      </motion.div>
+                      
+                      {/* 뇌 내부 활동 - 시냅스 신경망 연결 */}
+                      <div className="absolute inset-0">
+                        {/* 좌측 반구 신경망 */}
+                        {Array.from({ length: 12 }).map((_, i) => {
+                          const x1 = 5 + Math.random() * 25;
+                          const y1 = 15 + Math.random() * 70;
+                          const x2 = 5 + Math.random() * 25;
+                          const y2 = 15 + Math.random() * 70;
+                          return (
+                            <motion.div 
+                              key={`left-neuron-${i}`}
+                              className="absolute bg-blue-400/60"
+                              style={{
+                                width: '1px',
+                                height: `${Math.random() * 15 + 10}px`,
+                                top: `${y1}%`,
+                                left: `${x1}%`,
+                                transform: `rotate(${Math.random() * 360}deg)`
+                              }}
+                              animate={{
+                                opacity: [0.2, 0.8, 0.2]
+                              }}
+                              transition={{
+                                duration: Math.random() * 3 + 2,
+                                repeat: Infinity,
+                                delay: Math.random() * 2
+                              }}
+                            />
+                          );
+                        })}
+                        
+                        {/* 우측 반구 신경망 */}
+                        {Array.from({ length: 12 }).map((_, i) => {
+                          const x1 = 70 + Math.random() * 25;
+                          const y1 = 15 + Math.random() * 70;
+                          const x2 = 70 + Math.random() * 25;
+                          const y2 = 15 + Math.random() * 70;
+                          return (
+                            <motion.div 
+                              key={`right-neuron-${i}`}
+                              className="absolute bg-purple-400/60"
+                              style={{
+                                width: '1px',
+                                height: `${Math.random() * 15 + 10}px`,
+                                top: `${y1}%`,
+                                left: `${x1}%`,
+                                transform: `rotate(${Math.random() * 360}deg)`
+                              }}
+                              animate={{
+                                opacity: [0.2, 0.8, 0.2]
+                              }}
+                              transition={{
+                                duration: Math.random() * 3 + 2,
+                                repeat: Infinity,
+                                delay: Math.random() * 2
+                              }}
+                            />
+                          );
+                        })}
+                      </div>
+                      
+                      {/* 신경 전달 펄스 - 빛나는 점들이 뇌 전체를 이동 */}
+                      <div className="absolute inset-0">
+                        {Array.from({ length: 20 }).map((_, i) => {
+                          const startX = Math.random() * 100;
+                          const startY = Math.random() * 100;
+                          const endX = Math.random() * 100;
+                          const endY = Math.random() * 100;
+                          return (
+                            <motion.div
+                              key={`pulse-${i}`}
+                              className="absolute w-1.5 h-1.5 rounded-full"
+                              style={{
+                                backgroundColor: i % 2 === 0 ? 'rgba(59, 130, 246, 0.8)' : 'rgba(168, 85, 247, 0.8)',
+                                top: `${startY}%`,
+                                left: `${startX}%`,
+                                boxShadow: i % 2 === 0 ? '0 0 5px 2px rgba(59, 130, 246, 0.3)' : '0 0 5px 2px rgba(168, 85, 247, 0.3)'
+                              }}
+                              animate={{
+                                top: [`${startY}%`, `${endY}%`, `${startY}%`],
+                                left: [`${startX}%`, `${endX}%`, `${startX}%`],
+                                scale: [1, 1.5, 1]
+                              }}
+                              transition={{
+                                duration: Math.random() * 8 + 8,
+                                repeat: Infinity,
+                                delay: Math.random() * 2,
+                                ease: "easeInOut"
+                              }}
+                            />
+                          );
+                        })}
+                      </div>
+                      
+                      {/* 알고리즘 처리 시각화 */}
+                      <div className="absolute inset-0">
+                        {/* 알고리즘 코드 흐름 라인 */}
+                        {Array.from({ length: 6 }).map((_, i) => {
+                          const yPos = 10 + Math.random() * 80;
+                          return (
+                            <motion.div
+                              key={`algo-line-${i}`}
+                              className="absolute h-px rounded-full"
+                              style={{
+                                background: `linear-gradient(90deg, transparent, ${i % 2 === 0 ? 'rgba(59, 130, 246, 0.8)' : 'rgba(168, 85, 247, 0.8)'}, transparent)`,
+                                top: `${yPos}%`,
+                                left: '30%',
+                                width: '40%'
+                              }}
+                              animate={{
+                                scaleX: [0, 1, 0],
+                                opacity: [0, 0.8, 0]
+                              }}
+                              transition={{
+                                duration: Math.random() * 3 + 4,
+                                repeat: Infinity,
+                                delay: Math.random() * 3
+                              }}
+                            />
+                          );
+                        })}
+                        
+                        {/* 주요 알고리즘 노드 - 중요 알고리즘 처리 지점 */}
+                        {Array.from({ length: 6 }).map((_, i) => {
+                          const size = Math.random() * 6 + 4; // 4-10px
+                          const xPos = 20 + Math.random() * 60; // 20%-80%
+                          const yPos = 20 + Math.random() * 60; // 20%-80%
+                          const isBlue = Math.random() > 0.5;
+                          const color = isBlue ? 'rgba(59, 130, 246, 0.4)' : 'rgba(168, 85, 247, 0.4)';
+                          const borderColor = isBlue ? 'rgba(59, 130, 246, 0.6)' : 'rgba(168, 85, 247, 0.6)';
+                          
+                          return (
+                            <motion.div
+                              key={`algo-node-${i}`}
+                              className="absolute rounded-md backdrop-blur-sm"
+                              style={{
+                                width: `${size}px`,
+                                height: `${size}px`,
+                                backgroundColor: color,
+                                borderColor: borderColor,
+                                borderWidth: '1px',
+                                top: `${yPos}%`,
+                                left: `${xPos}%`
+                              }}
+                              animate={{
+                                scale: [1, 1.3, 1],
+                                opacity: [0.6, 1, 0.6],
+                                boxShadow: [
+                                  `0 0 3px 1px ${color}`,
+                                  `0 0 8px 3px ${color}`,
+                                  `0 0 3px 1px ${color}`
+                                ]
+                              }}
+                              transition={{
+                                duration: Math.random() * 4 + 3,
+                                repeat: Infinity,
+                                delay: Math.random() * 2
+                              }}
+                            />
+                          );
+                        })}
+                      </div>
+                      
+                      {/* 중앙 연결 부분 - 뇌량 */}
+                      <motion.div
+                        className="absolute w-[30%] h-[8%] left-1/2 transform -translate-x-1/2 top-[40%] bg-gradient-to-r from-blue-500/20 via-purple-400/30 to-blue-500/20 rounded-full"
+                        animate={{
+                          opacity: [0.3, 0.7, 0.3]
+                        }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }}
+                      />
+                      
+                      {/* 알고리즘 텍스트 라벨들 */}
+                      <motion.div
+                        className="absolute top-[10%] left-[45%] text-[8px] text-blue-400/70 font-mono"
+                        animate={{
+                          opacity: [0.5, 1, 0.5]
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity
+                        }}
+                      >
+                        머신러닝
+                      </motion.div>
+                      
+                      <motion.div
+                        className="absolute top-[30%] left-[70%] text-[8px] text-purple-400/70 font-mono"
+                        animate={{
+                          opacity: [0.5, 1, 0.5]
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: 1
+                        }}
+                      >
+                        딥러닝
+                      </motion.div>
+                      
+                      <motion.div
+                        className="absolute top-[60%] left-[25%] text-[8px] text-blue-400/70 font-mono"
+                        animate={{
+                          opacity: [0.5, 1, 0.5]
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: 2
+                        }}
+                      >
+                        예측모델
+                      </motion.div>
+                      
+                      <motion.div
+                        className="absolute top-[80%] left-[55%] text-[8px] text-green-400/70 font-mono"
+                        animate={{
+                          opacity: [0.5, 1, 0.5]
+                        }}
+                        transition={{
+                          duration: 3,
+                          repeat: Infinity,
+                          delay: 3
+                        }}
+                      >
+                        최적화
+                      </motion.div>
+                      
+                      {/* 데이터 스트림 패스웨이 */}
+                      <svg className="absolute inset-0 w-full h-full z-10 opacity-70" viewBox="0 0 100 100" preserveAspectRatio="none">
+                        <motion.path
+                          d="M30,30 Q50,50 70,30"
+                          stroke="rgba(59, 130, 246, 0.5)"
+                          strokeWidth="0.5"
+                          fill="none"
+                          animate={{
+                            d: [
+                              "M30,30 Q50,50 70,30",
+                              "M30,40 Q50,60 70,40",
+                              "M30,30 Q50,50 70,30"
+                            ]
+                          }}
+                          transition={{
+                            duration: 8,
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                          }}
+                        />
+                        
+                        <motion.path
+                          d="M25,50 Q50,30 75,50"
+                          stroke="rgba(168, 85, 247, 0.5)"
+                          strokeWidth="0.5"
+                          fill="none"
+                          animate={{
+                            d: [
+                              "M25,50 Q50,30 75,50",
+                              "M25,60 Q50,40 75,60",
+                              "M25,50 Q50,30 75,50"
+                            ]
+                          }}
+                          transition={{
+                            duration: 8,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: 1
+                          }}
+                        />
+                        
+                        <motion.path
+                          d="M20,70 Q50,80 80,70"
+                          stroke="rgba(16, 185, 129, 0.5)"
+                          strokeWidth="0.5"
+                          fill="none"
+                          animate={{
+                            d: [
+                              "M20,70 Q50,80 80,70",
+                              "M20,65 Q50,75 80,65",
+                              "M20,70 Q50,80 80,70"
+                            ]
+                          }}
+                          transition={{
+                            duration: 8,
+                            repeat: Infinity,
+                            ease: "easeInOut",
+                            delay: 2
+                          }}
+                        />
+                      </svg>
+                    </div>
+                    
+                    {/* 3D 회전하는 데이터 구조 */}
+                    <motion.div
+                      className="absolute bottom-6 right-6 w-28 h-28"
+                      animate={{
+                        rotateY: [0, 360],
+                      }}
+                      transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        ease: "linear"
+                      }}
+                    >
+                      <div className="relative w-full h-full" style={{ perspective: '500px' }}>
+                        <div className="absolute inset-0 rounded-lg flex items-center justify-center backdrop-blur-md bg-blue-500/10 border border-blue-400/30">
+                          <div className="text-2xl font-bold text-blue-300">AI</div>
+                        </div>
+                      </div>
+                    </motion.div>
+                    
+                    {/* 보조 데이터 시각화 */}
+                    <div className="absolute top-8 left-8 h-24 flex items-end space-x-1">
+                      {Array.from({ length: 8 }).map((_, i) => (
+                        <motion.div
+                          key={`bar-${i}`}
+                          className="w-2 bg-gradient-to-t from-blue-500/30 to-purple-500/30 rounded-t-sm"
+                          style={{ height: '10%' }}
+                          animate={{
+                            height: [`${Math.random() * 30 + 10}%`, `${Math.random() * 70 + 30}%`, `${Math.random() * 30 + 10}%`]
+                          }}
+                          transition={{
+                            duration: Math.random() * 2 + 2,
+                            repeat: Infinity,
+                            repeatType: "reverse",
+                            delay: i * 0.2
+                          }}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
               </motion.div>
