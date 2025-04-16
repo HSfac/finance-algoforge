@@ -1,9 +1,7 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { FaChartLine, FaChartPie, FaArrowRight, FaRobot, FaShieldAlt, FaClock, FaCog, FaCode, FaBrain, FaSearchDollar, FaBalanceScale, FaLightbulb, FaSyncAlt } from 'react-icons/fa';
+import { FaChartLine, FaChartPie, FaShieldAlt, FaCog, FaCode, FaBrain, FaBalanceScale, FaLightbulb, FaSyncAlt } from 'react-icons/fa';
 import ServiceTemplate from '../service-template';
 import PortfolioChart from '@/components/visualizations/PortfolioChart';
 

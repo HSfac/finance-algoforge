@@ -1,25 +1,9 @@
 'use client';
 
+import React from 'react';
+import Link from 'next/link';
+import { FaChartLine, FaLightbulb } from 'react-icons/fa';
 import AnimatedSection, { AnimatedItem } from '@/components/ui/AnimatedSection';
-import Image from 'next/image';
-import { FaChartLine, FaUsers, FaLightbulb, FaHandshake } from 'react-icons/fa6';
-
-// 아이콘 컴포넌트 직접 정의
-const ChartLineIcon = () => (
-  <FaChartLine className="h-8 w-8" />
-);
-
-const UsersIcon = () => (
-  <FaUsers className="h-8 w-8" />
-);
-
-const LightbulbIcon = () => (
-  <FaLightbulb className="h-8 w-8" />
-);
-
-const HandshakeIcon = () => (
-  <FaHandshake className="h-8 w-8" />
-);
 
 const AboutPage = () => {
   return (
@@ -82,7 +66,7 @@ const AboutPage = () => {
                     </div>
                     <h2 className="text-3xl font-bold mb-6 font-heading text-center text-white">비전</h2>
                     <p className="text-lg text-white/80 leading-relaxed text-center">
-                      "금융 시장의 복잡성을 알고리즘으로 해석하여 누구나 안정적인 수익을 창출할 수 있는 세상을 만든다"
+                      &quot;금융 시장의 복잡성을 알고리즘으로 해석하여 누구나 안정적인 수익을 창출할 수 있는 세상을 만든다&quot;
                     </p>
                     
                     <div className="absolute bottom-0 left-0 right-0 h-1">
@@ -105,7 +89,7 @@ const AboutPage = () => {
                     </div>
                     <h2 className="text-3xl font-bold mb-6 font-heading text-center text-white">미션</h2>
                     <p className="text-lg text-white/80 leading-relaxed text-center">
-                      "최첨단 기술로 개인과 기관 투자자의 트레이딩 전략을 구현하고 자동화하여 효율적인 자산 운용을 지원한다"
+                      &quot;최첨단 기술로 개인과 기관 투자자의 트레이딩 전략을 구현하고 자동화하여 효율적인 자산 운용을 지원한다&quot;
                     </p>
                     
                     <div className="absolute bottom-0 left-0 right-0 h-1">
@@ -175,7 +159,7 @@ const AboutPage = () => {
                       </svg>
                       <div className="relative z-10">
                         <p className="text-white/80 text-lg mb-4 leading-relaxed">
-                          <span className="font-bold text-blue-400 text-xl">"</span>
+                          <span className="font-bold text-blue-400 text-xl">&quot;</span>
                           저는 10년 동안 전업 트레이더로 일하며 다양한 시장을 경험했습니다. 초반에는 제법 좋은 수익을 냈지만, 시간이 지날수록 감정과 편향에 흔들려 점점 더 큰 손실을 보게 되었습니다.
                         </p>
                         <p className="text-white/80 text-lg mb-4 leading-relaxed">
@@ -183,7 +167,7 @@ const AboutPage = () => {
                         </p>
                         <p className="text-white/80 text-lg leading-relaxed">
                           그 후 데이터 기반의 알고리즘 매매 시스템을 개발하기 시작했고, 6개월 만에 놀라운 변화를 경험했습니다. 감정이 아닌 데이터가 의사결정을 하니 수익은 안정적으로 쌓여갔고, MDD는 현저히 줄었습니다. 이 경험이 알고포지를 창업하게 된 계기입니다.
-                          <span className="font-bold text-blue-400 text-xl">"</span>
+                          <span className="font-bold text-blue-400 text-xl">&quot;</span>
                         </p>
                       </div>
                     </div>
@@ -494,7 +478,7 @@ const AboutPage = () => {
                   
                   <div className="relative z-10">
                     <div className="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto mb-4 text-blue-400">
-                      <FaUsers className="h-8 w-8 text-blue-400" />
+                      <FaLightbulb className="h-8 w-8 text-blue-400" />
                     </div>
                     <h3 className="text-xl font-bold mb-3 font-heading text-center text-white">팀워크</h3>
                     <p className="text-white/70 text-center">
@@ -532,7 +516,7 @@ const AboutPage = () => {
                   
                   <div className="relative z-10">
                     <div className="w-16 h-16 rounded-full bg-blue-500/10 flex items-center justify-center mx-auto mb-4 text-blue-400">
-                      <FaHandshake className="h-8 w-8 text-blue-400" />
+                      <FaLightbulb className="h-8 w-8 text-blue-400" />
                     </div>
                     <h3 className="text-xl font-bold mb-3 font-heading text-center text-white">고객 신뢰</h3>
                     <p className="text-white/70 text-center">

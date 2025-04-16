@@ -1,12 +1,9 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaShieldAlt, FaChartLine, FaArrowRight, FaBell, FaCog, FaChartArea, FaExchangeAlt, FaChartBar, FaExclamationTriangle } from 'react-icons/fa';
+import { FaShieldAlt, FaChartLine, FaArrowRight, FaBell, FaChartBar, FaExclamationTriangle } from 'react-icons/fa';
 import AnimatedSection from '@/components/ui/AnimatedSection';
-import CounterAnimation from '@/components/ui/CounterAnimation';
-import Image from 'next/image';
 import RiskHeatmapChart from '@/components/visualizations/RiskHeatmapChart';
 import RiskVaRChart from '@/components/visualizations/RiskVaRChart';
 

@@ -1,9 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { FaChartPie, FaArrowRight, FaBriefcase, FaBalanceScale, FaChartLine, FaGlobe, FaLayerGroup, FaShieldAlt, FaRegLightbulb, FaSyncAlt } from 'react-icons/fa';
 import ServiceTemplate from '../service-template';
 import AssetAllocationChart from '@/components/visualizations/AssetAllocationChart';
 

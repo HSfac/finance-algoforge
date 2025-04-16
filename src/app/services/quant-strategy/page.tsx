@@ -1,9 +1,6 @@
 'use client';
 
 import React from 'react';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import { FaRobot, FaChartLine, FaArrowRight, FaCogs, FaCode, FaBrain, FaChartArea, FaRegLightbulb, FaSearch, FaDatabase, FaNetworkWired, FaTable } from 'react-icons/fa';
 import ServiceTemplate from '../service-template';
 import QuantStrategyChart from '@/components/visualizations/QuantStrategyChart';
 

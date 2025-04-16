@@ -103,13 +103,11 @@ const AssetAllocationChart = () => {
   };
   
   const assetSlices = calculatePieSlices(assetData);
-  const riskSlices = calculatePieSlices(riskContributionData);
   const regionSlices = calculatePieSlices(regionData);
   
   // 바 차트 설정
   const barHeight = 30;
   const barGap = 15;
-  const barGroupHeight = assetData.length * (barHeight + barGap) - barGap;
   const barMaxWidth = chartWidth / 2 - 40;
   
   return (

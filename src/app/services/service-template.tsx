@@ -3,7 +3,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { FaChartLine, FaChartPie, FaArrowRight, FaRobot, FaShieldAlt, FaClock, FaCog, FaCode, FaBrain, FaSearchDollar, FaServer, FaUsersCog, FaLightbulb } from 'react-icons/fa';
+import { FaArrowRight, FaLightbulb } from 'react-icons/fa';
 import AnimatedSection from '@/components/ui/AnimatedSection';
 import CounterAnimation from '@/components/ui/CounterAnimation';
 import Image from 'next/image';

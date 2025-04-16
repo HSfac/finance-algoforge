@@ -19,7 +19,7 @@ const RiskVaRChart = () => {
 
   const mean = 0.02; // 평균 수익률 2%
   const stdDev = 0.08; // 표준편차 8%
-  const varConfidence = 0.95; // 95% 신뢰수준
+  // 95% 신뢰수준의 VaR 값 (1.645는 표준정규분포에서 95% 신뢰수준에 해당하는 Z값)
   const varValue = mean - stdDev * 1.645; // 95% 신뢰수준의 VaR 값
   
   const distributionData = generateNormalDistribution(mean, stdDev, 100);

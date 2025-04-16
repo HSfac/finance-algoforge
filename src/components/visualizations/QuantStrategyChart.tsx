@@ -23,7 +23,6 @@ const QuantStrategyChart = () => {
   for (let i = 25; i < timeSeriesData.length; i++) {
     const current = timeSeriesData[i];
     const signal = signalData[i] || 0;
-    const prevSignal = signalData[i - 1] || 0;
     
     // 매수 시그널 - 가격이 이동평균을 상향 돌파
     if (timeSeriesData[i - 1] < signalData[i - 1] && current > signal) {
