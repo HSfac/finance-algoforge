@@ -35,6 +35,21 @@ const config: Config = {
         'md': '28rem',
         'sm': '24rem',
       },
+      animation: {
+        'data-flow': 'data-flow 8s linear infinite',
+        'flow-up': 'flow-up 12s linear infinite',
+        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+      },
+      keyframes: {
+        'data-flow': {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' }
+        },
+        'flow-up': {
+          '0%': { transform: 'translateY(100vh)' },
+          '100%': { transform: 'translateY(-100px)' }
+        },
+      },
     },
   },
   plugins: [],

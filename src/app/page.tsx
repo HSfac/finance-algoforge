@@ -317,7 +317,6 @@ const AlgorithmEffect = () => {
 };
 
 export default function Home() {
-  const [isBannerCollapsed, setIsBannerCollapsed] = useState(false);
   const router = useRouter();
   const { startCodeAnimation } = useCodeAnimation();
   
@@ -342,10 +341,6 @@ export default function Home() {
   });
 }`;
 
-  const toggleBanner = () => {
-    setIsBannerCollapsed(!isBannerCollapsed);
-  };
-  
   const handleStartCodeAnimation = () => {
     startCodeAnimation();
   };
@@ -717,19 +712,9 @@ export default function Home() {
       </section>
 
       {/* 실적 배너 */}
-      <section className={`bg-gradient-to-r from-blue-900 via-black to-blue-800 text-white py-14 border-t border-b border-primary/20 relative overflow-hidden sticky-banner ${isBannerCollapsed ? 'collapsed' : ''}`}>
+      <section className="bg-gradient-to-r from-blue-900 via-black to-blue-800 text-white py-14 border-t border-b border-primary/20 relative overflow-visible">
         {/* 배경 패턴 */}
         <div className="absolute inset-0 algo-grid opacity-20"></div>
-        
-        {/* 배너 컨트롤 버튼 */}
-        <button 
-          className={`absolute right-4 top-8 transform z-20 bg-blue-600 hover:bg-blue-700 w-10 h-10 rounded-full flex items-center justify-center shadow-lg border border-blue-400/30 banner-toggle ${isBannerCollapsed ? 'collapsed' : ''}`}
-          onClick={toggleBanner}
-        >
-          <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
         
         {/* 데이터 라인 효과 */}
         <div className="absolute top-0 h-px w-full">
@@ -764,7 +749,7 @@ export default function Home() {
         </div>
         
         {/* 콘텐츠 */}
-        <div className="container relative z-10 banner-content px-4 sm:px-6 md:px-8">
+        <div className="container relative z-10 px-4 sm:px-6 md:px-8">
           <div className="mb-10 text-center">
             <div className="inline-block bg-black/30 backdrop-blur-md rounded-full px-4 py-1.5 mb-3 border border-primary/30">
               <span className="text-sm font-medium text-primary flex items-center gap-2">
@@ -906,12 +891,12 @@ export default function Home() {
             </div>
             
             {/* 고객 만족도 */}
-            <div className="bg-black/50 backdrop-blur-lg rounded-2xl border border-purple-500/30 p-0.5 overflow-hidden sm:transform sm:hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(168,85,247,0.3)] group customer-satisfaction-card">
-              <div className="bg-gradient-to-br from-gray-900 to-black h-full rounded-2xl p-5 relative overflow-hidden">
+            <div className="bg-black/50 backdrop-blur-lg rounded-2xl border border-purple-500/30 p-0.5 overflow-visible sm:transform sm:hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(168,85,247,0.3)] group customer-satisfaction-card">
+              <div className="bg-gradient-to-br from-gray-900 via-purple-900/30 to-black h-full rounded-xl p-5 relative overflow-visible">
                 {/* 배경 디자인 */}
-                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-xl"></div>
-                <div className="absolute -bottom-4 -right-4 w-16 h-16 border border-purple-500/20 rounded-full"></div>
-                <div className="absolute top-5 right-5 opacity-10">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/20 rounded-full blur-xl"></div>
+                <div className="absolute -bottom-4 -right-4 w-16 h-16 border border-purple-500/40 rounded-full"></div>
+                <div className="absolute top-5 right-5 opacity-20">
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M17 8.5L12 13.5L7 8.5" stroke="#A855F7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M12 13.5V21.5" stroke="#A855F7" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -923,21 +908,21 @@ export default function Home() {
                 
                 {/* 콘텐츠 */}
                 <div className="relative z-10">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="bg-purple-500/20 p-2 rounded-lg text-purple-400">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="bg-purple-500/30 p-2 rounded-lg text-purple-400">
                       <UsersIcon />
                     </div>
-                    <h3 className="text-sm font-mono text-white/80">고객 만족도</h3>
+                    <h3 className="text-sm font-mono text-white/90 font-bold">고객 만족도</h3>
                   </div>
                   
                   <div className="mb-3 flex items-end">
-                    <div className="text-4xl font-bold text-white font-heading tracking-tight satisfaction-number">
+                    <div className="text-4xl sm:text-5xl font-bold text-white font-heading tracking-tight satisfaction-number">
                       <CounterAnimation end={98} suffix="" />
                     </div>
-                    <div className="text-lg font-mono text-purple-400 font-bold ml-2 mb-1">%</div>
+                    <div className="text-lg sm:text-xl font-mono text-purple-400 font-bold ml-2 mb-1">%</div>
                   </div>
                   
-                  <div className="w-full h-1.5 bg-black/50 rounded-full mt-1 mb-2">
+                  <div className="w-full h-2 bg-black/70 rounded-full mt-1 mb-2">
                     <div className="h-full bg-purple-500 rounded-full" style={{ width: '98%' }}></div>
                   </div>
                   
@@ -953,33 +938,6 @@ export default function Home() {
       </section>
 
       <style jsx global>{`
-        .sticky-banner {
-          transition: all 0.5s ease-in-out;
-          max-height: 800px;
-          overflow: hidden;
-        }
-        
-        .sticky-banner.collapsed {
-          max-height: 80px; /* 제목과 컨트롤 버튼을 위한 충분한 높이 */
-        }
-        
-        .sticky-banner.collapsed .banner-content {
-          transform: translateY(-20px);
-        }
-        
-        .sticky-banner .banner-content {
-          transition: transform 0.5s ease-in-out;
-        }
-        
-        .banner-toggle {
-          transition: transform 0.3s ease;
-          z-index: 30;
-        }
-        
-        .banner-toggle.collapsed {
-          transform: rotate(180deg);
-        }
-        
         .chart-arrow {
           animation: arrowBounce 2s infinite;
         }
@@ -990,11 +948,14 @@ export default function Home() {
         }
         
         .customer-satisfaction-card {
-          background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+          background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9));
+          position: relative;
+          z-index: 5;
+          box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
         }
         
         .satisfaction-number {
-          text-shadow: 0 0 15px rgba(168, 85, 247, 0.7);
+          text-shadow: 0 0 15px rgba(168, 85, 247, 0.8);
         }
         
         @media (max-width: 640px) {
@@ -1004,26 +965,22 @@ export default function Home() {
             gap: 16px;
           }
           
-          .grid > div {
+          .grid > * {
             min-height: 180px;
             width: 100%;
-          }
-          
-          /* 고객 만족도 카드 */
-          .grid > div:nth-child(4) {
             margin-bottom: 16px;
-            z-index: 10;
             position: relative;
-            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+            z-index: 5;
           }
           
           .customer-satisfaction-card {
             border-width: 2px;
-            border-color: rgba(168, 85, 247, 0.5);
+            border-color: rgba(168, 85, 247, 0.6);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
           }
           
           .satisfaction-number {
-            font-size: 2.5rem;
+            font-size: 2.75rem;
           }
         }
         
