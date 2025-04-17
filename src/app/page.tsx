@@ -764,7 +764,7 @@ export default function Home() {
         </div>
         
         {/* 콘텐츠 */}
-        <div className="container relative z-10 banner-content">
+        <div className="container relative z-10 banner-content px-4 sm:px-6 md:px-8">
           <div className="mb-10 text-center">
             <div className="inline-block bg-black/30 backdrop-blur-md rounded-full px-4 py-1.5 mb-3 border border-primary/30">
               <span className="text-sm font-medium text-primary flex items-center gap-2">
@@ -777,17 +777,17 @@ export default function Home() {
             </h2>
           </div>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
             {/* 총 거래 금액 */}
-            <div className="bg-black/50 backdrop-blur-lg rounded-2xl border border-primary/30 p-0.5 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(241,196,15,0.3)] group">
+            <div className="bg-black/50 backdrop-blur-lg rounded-2xl border border-primary/30 p-0.5 overflow-hidden sm:transform sm:hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(241,196,15,0.3)] group">
               <div className="bg-gradient-to-br from-gray-900 to-black h-full rounded-2xl p-5 relative overflow-hidden">
                 {/* 배경 디자인 */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-xl"></div>
                 <div className="absolute -bottom-4 -right-4 w-16 h-16 border border-primary/20 rounded-full"></div>
                 <div className="absolute top-5 right-5 opacity-10">
                   <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M3 3V21H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M7 17L11 13L15 17L21 11" stroke="#3B82F6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M0 0h24v24H0V0z" fill="none"/>
+                    <path d="M3.5 18.5l6-6 4 4L22 6.92 20.59 5.5l-7.09 7.09-4-4L2 16l1.5 2.5z"/>
                   </svg>
                 </div>
                 
@@ -823,7 +823,7 @@ export default function Home() {
             </div>
             
             {/* 자동화 트레이딩 */}
-            <div className="bg-black/50 backdrop-blur-lg rounded-2xl border border-blue-500/30 p-0.5 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,130,246,0.3)] group">
+            <div className="bg-black/50 backdrop-blur-lg rounded-2xl border border-blue-500/30 p-0.5 overflow-hidden sm:transform sm:hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(59,130,246,0.3)] group">
               <div className="bg-gradient-to-br from-gray-900 to-black h-full rounded-2xl p-5 relative overflow-hidden">
                 {/* 배경 디자인 */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-xl"></div>
@@ -865,7 +865,7 @@ export default function Home() {
             </div>
             
             {/* 데이터 포인트 */}
-            <div className="bg-black/50 backdrop-blur-lg rounded-2xl border border-green-500/30 p-0.5 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(34,197,94,0.3)] group">
+            <div className="bg-black/50 backdrop-blur-lg rounded-2xl border border-green-500/30 p-0.5 overflow-hidden sm:transform sm:hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(34,197,94,0.3)] group">
               <div className="bg-gradient-to-br from-gray-900 to-black h-full rounded-2xl p-5 relative overflow-hidden">
                 {/* 배경 디자인 */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-green-500/5 rounded-full blur-xl"></div>
@@ -906,7 +906,7 @@ export default function Home() {
             </div>
             
             {/* 고객 만족도 */}
-            <div className="bg-black/50 backdrop-blur-lg rounded-2xl border border-purple-500/30 p-0.5 overflow-hidden transform hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(168,85,247,0.3)] group">
+            <div className="bg-black/50 backdrop-blur-lg rounded-2xl border border-purple-500/30 p-0.5 overflow-hidden sm:transform sm:hover:scale-105 transition-all duration-300 hover:shadow-[0_0_25px_rgba(168,85,247,0.3)] group customer-satisfaction-card">
               <div className="bg-gradient-to-br from-gray-900 to-black h-full rounded-2xl p-5 relative overflow-hidden">
                 {/* 배경 디자인 */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 rounded-full blur-xl"></div>
@@ -931,7 +931,7 @@ export default function Home() {
                   </div>
                   
                   <div className="mb-3 flex items-end">
-                    <div className="text-4xl font-bold text-white font-heading tracking-tight">
+                    <div className="text-4xl font-bold text-white font-heading tracking-tight satisfaction-number">
                       <CounterAnimation end={98} suffix="" />
                     </div>
                     <div className="text-lg font-mono text-purple-400 font-bold ml-2 mb-1">%</div>
@@ -987,6 +987,44 @@ export default function Home() {
         @keyframes arrowBounce {
           0%, 100% { transform: translateY(0); }
           50% { transform: translateY(-10px); }
+        }
+        
+        .customer-satisfaction-card {
+          background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+        }
+        
+        .satisfaction-number {
+          text-shadow: 0 0 15px rgba(168, 85, 247, 0.7);
+        }
+        
+        @media (max-width: 640px) {
+          .grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+          }
+          
+          .grid > div {
+            min-height: 180px;
+            width: 100%;
+          }
+          
+          /* 고객 만족도 카드 */
+          .grid > div:nth-child(4) {
+            margin-bottom: 16px;
+            z-index: 10;
+            position: relative;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+          }
+          
+          .customer-satisfaction-card {
+            border-width: 2px;
+            border-color: rgba(168, 85, 247, 0.5);
+          }
+          
+          .satisfaction-number {
+            font-size: 2.5rem;
+          }
         }
         
         /* 나머지 스타일은 유지 */
